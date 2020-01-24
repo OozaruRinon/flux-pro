@@ -152,7 +152,10 @@
                             <h5 class="text-on-back"><i class="fab fa-ethereum"></i> <span id="myETCValue">0</span> ETC</h5>
                             <p class="profile-description">
                                 <br />
-                                <small class="text-white"><div id="current"></div></small>
+                                <small class="text-white">
+                                    <b>Your Dividends: </b> 
+                                </small>
+                                
                             </p>
                         </div>
                         <div class="col-md-6 ml-auto mr-auto">
@@ -167,6 +170,7 @@
                                         <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#linka">Buy</a></li>
                                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkb">Sell</a></li>
                                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkc">Transfer</a></li>
+                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkd">Dividends</a></li>
                                     </ul>
                                     <div class="tab-content tab-subcategories">
                                         <div class="tab-pane active" id="linka">
@@ -192,6 +196,19 @@
                                             <input type="text" id="transferTokenCount" class="form-control" placeholder="Amount of Points"><br />
                                             <button id="transfer" class="btn btn-block btn-info"><i class="right arrow icon"></i> Transfer</button>
                                         </div>
+                                        
+                                        <div class="tab-pane" id="linkd">
+                                            <h3 class="text-center">My Dividends: <br /><span id="myCropDividends"></span> ETC</h3>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <a class="btn btn-block btn-info" id="withdraw"><i class="fas fa-wallet text-white"></i> Withdraw</a>
+                                                </div>
+                                                
+                                                <div class="col">
+                                                    <a class="btn btn-block btn-success" id="reinvest"><i class="fas fa-recycle text-white"></i> Compound</a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -200,17 +217,17 @@
                     
                     <div class="row">
                         <div class="col">
-                            
+                            <div id="current"></div>
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="col-md-3">
-                            <a class="btn btn-block btn-info" id="withdraw"><i class="fas fa-wallet text-white"></i> Withdraw</a>
+                            
                         </div>
                         
                         <div class="col-md-3">
-                            <a class="btn btn-block btn-success" id="reinvest"><i class="fas fa-recycle text-white"></i> Compound</a>
+                            
                         </div>
                         <div class="col-md-3">
                             <a class="btn btn-block btn-info" id="distribute"><i class="fas fa-info text-success"></i> Split Divies</a>
@@ -244,12 +261,6 @@
                                             </thead>
                                                     
                                             <tbody>
-                                                <tr>
-                                                    <td>My Dividends</td>
-                                                    <td><span id="myCropDividends"></span></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
                                                 <tr>
                                                     <td>Vault</td>
                                                     <td><span id="etcInContract"></span></td>
