@@ -176,7 +176,7 @@
                                         <div class="tab-pane active" id="linka">
                                             <h3 class="text-white"><strong>Price: </strong><span id="tokenBuyGet">0.0000</span></h3>
                                             <input placeholder="ETC to Spend..." class="form-control" type="text" id="buyInput"><br />
-                                            <button id="buy" class="btn btn-block btn-success">Buy Points</button>
+                                            <a id="buy" class="btn btn-block btn-success" href="#">Buy Points</a>
                                             <div id="buyAmount" class="ui fluid large basic green button approx no click buy-amount">
                                                 <i>How much will you buy?</i>
                                             </div>
@@ -185,7 +185,7 @@
                                         <div class="tab-pane" id="linkb">
                                             <h3 class="text-white"><strong>Price: </strong><span class="buy-price" id="tokenSellGet">0.00</span></h3>
                                             <input placeholder="Points to Sell..." class="form-control" type="text" id="sellInput"><br />
-                                            <button id="sell" class="btn btn-block btn-danger">Sell Points</button>
+                                            <a id="sell" class="btn btn-block btn-danger" href="#">Sell Points</a>
                                             <div id="sellAmount" class="ui fluid large basic blue button no click approx" style="margin-top:10px;">
                                                 <i>How much will you sell?</i>
                                             </div>
@@ -194,18 +194,18 @@
                                         <div class="tab-pane" id="linkc">
                                             <input type="text" id="transferAddress" class="form-control" placeholder="Destination Address"><br />
                                             <input type="text" id="transferTokenCount" class="form-control" placeholder="Amount of Points"><br />
-                                            <button id="transfer" class="btn btn-block btn-info"><i class="right arrow icon"></i> Transfer</button>
+                                            <a id="transfer" class="btn btn-block btn-info" href="#"><i class="right arrow icon"></i> Transfer</a>
                                         </div>
                                         
                                         <div class="tab-pane" id="linkd">
                                             <h3 class="text-center">My Dividends: <br /><span id="myCropDividends"></span> ETC</h3>
                                             <div class="row">
                                                 <div class="col">
-                                                    <a class="btn btn-block btn-info" id="withdraw"><i class="fas fa-wallet text-white"></i> Withdraw</a>
+                                                    <a class="btn btn-block btn-info" id="withdraw" href="#"><i class="fas fa-wallet text-white"></i> Withdraw</a>
                                                 </div>
                                                 
                                                 <div class="col">
-                                                    <a class="btn btn-block btn-success" id="reinvest"><i class="fas fa-recycle text-white"></i> Compound</a>
+                                                    <a class="btn btn-block btn-success" id="reinvest" href="#"><i class="fas fa-recycle text-white"></i> Compound</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -218,22 +218,6 @@
                     <div class="row">
                         <div class="col">
                             <div id="current"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-3">
-                            
-                        </div>
-                        
-                        <div class="col-md-3">
-                            
-                        </div>
-                        <div class="col-md-3">
-                            <a class="btn btn-block btn-info" id="distribute"><i class="fas fa-info text-success"></i> Split Divies</a>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="btn btn-block btn-warning" id="rainMaker"><i class="fas fa-cloud text-success"></i> Activate RainMaker</a>
                         </div>
                     </div>
                 </div>
@@ -288,6 +272,15 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    
+                                    <div class="row">
+                        <div class="col">
+                            <a class="btn btn-block btn-info" id="distribute" href="#"><i class="fas fa-info text-success"></i> Split Divies</a>
+                        </div>
+                        <div class="col">
+                            <a class="btn btn-block btn-warning" id="rainMaker" href="#"><i class="fas fa-cloud text-success"></i> Activate RainMaker</a>
+                        </div>
+                    </div>
                                 </div>
                             </div>
                         </div>
