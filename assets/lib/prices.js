@@ -52,6 +52,13 @@ function setDividendsPrice(usdPrice){
   myDividendUSDValue = value.toFixed(5)
 }
 
+var myDividendInfoUSDValue = 0
+function setDividendsInfoPrice(usdPrice){
+  value =  Number($('#myCropDividendsInfo').text()) * usdPrice
+  $('#myDividendsInfoValue').text('$' + value.toFixed(5))
+  myDividendInfoUSDValue = value.toFixed(5)
+}
+
 function updateEtcPrice(portfolio) {
   $.getJSON('https://min-api.cryptocompare.com/data/price?fsym=ETC&tsyms=USD', function (result) {
     if (result !== null){
@@ -64,6 +71,7 @@ function updateEtcPrice(portfolio) {
 
       setTokensPrice(usdPrice)
       setDividendsPrice(usdPrice)
+      setDividendsInfoPrice(usdPrice)
     }
   })
 }
