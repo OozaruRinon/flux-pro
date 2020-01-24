@@ -7,6 +7,7 @@ var cropAbi = web3.eth.contract(contracts.crop.abi)
 var myCropAddress;
 var myCropTokens;
 var myCropDividends;
+var myCropDividendsInfo;
 var myCropDisabled;
 
 
@@ -66,6 +67,29 @@ function getMyCropDividends() {
     });
 }
 
+var myCropDividendsInfo = 0;
+function getMyCropDividendsInfo() {
+    p3cContract.myDividends.call(
+        true, 
+        function (err, result) {
+        if (!err) {
+            change = (String(myCropDividendsInfo) !== String(result))
+            myCropDividendsInfo = result;
+            if (Number(myCropDividendsInfo) == 0){
+                $("#myCropDividendsInfo").replaceWith("<b id='myCropDividendsInfo'>" + "0" + "</b>")
+            }
+            if (change) {
+                amount = web3.fromWei(myCropDividendsInfo).toFixed(8)
+                $("#myCropDividendsInfo").replaceWith("<b id='myCropDividendsInfo'>" + amount  + "</b>")
+                $('#myCropDividendsInfo').transition({
+                    animation: 'flash',
+                    duration: '1s',
+                });
+            }
+        }
+    });
+}
+
 var myETCValue = 0
 function getMyCropTokens() {
     p3cContract.myTokens.call(function (err, result) {
@@ -95,6 +119,7 @@ getMyCrop()
 function getCropInfo() {
     getMyCropTokens()
     getMyCropDividends()
+    getMyCropDividendsInfo()
 }
 
 // This buys P3C from the crop, but with you as the referrer
