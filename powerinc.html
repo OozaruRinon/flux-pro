@@ -194,9 +194,9 @@
                             <div class="card card-coin border-danger animated fadeInRight delay-2s">
                                 <div class="card-coin-header text-white"><br /><h3><i class="fas fa-dollar-sign"></i> Buy Power</h3></div>
                                 <div class="card-body text-white text-center">
-                                    <h4 class="text-white"><span id="eggstobuy">?</span> Watts for </h4>
+                                    <h4 class="text-white"><span id="eggstobuy">?</span> Cells for </h4>
                                     <input class="form-control" type="number" onchange="updateBuyPrice()" step="0.01" value="0.01" id="ethtospend"><br />
-                                    <a href="powerinc.html#" onclick="buyEggs2()" class="btn btn-block btn-danger">Buy Power</a>
+                                    <a href="powerinc.html#" onclick="buyEggs2()" class="btn btn-block btn-danger">Buy <span id="ethtospend">?<br /></span>Power</a>
                                 </div>
                             </div>
                         </div>
@@ -206,17 +206,38 @@
                                 
                                 <div class="card-coin-header text-white text-left"><h3><br /><span>&nbsp;&nbsp;&nbsp;</span><img src="assets/img/etherum.png" alt="Circle image" class="img-fluid rounded" style="width: 20px; height: 25px;"> How it Works</h3></div>
                                 <div class="card-body text-white text-left">
-                                    <p class="text-white"> Power Inc is a dApp originally designed as an ethereum-based idle game. Arcadium Network has since reconfigured it to work for the Commonwealth community and given it a redesign more inline with our other products. The first 100 Power Cells are free and once claimed start the 24 hour countdown.</p>
                                     
-                                    <p class="text-white">Every 24 hours each Power Cell will produce an additional Watt. Each Watt can then be either converted into an additional Power Cell or sold for ETC. If you convert at the end of the 24 hour countdown, you will double your Power Cells. Alternatively, you may choose to sell Watts before the countdown ends, which will reset the countdown.</p>
-                                    
+                                    <ul class="text-left" style="list-style-type: none;">
+                                        <li>
+                                            1. Claim your free Power Cells to start the 24-Hour countdown.
+                                        </li>
+                                        <p></p>
+                                        <li>
+                                            2. When the countdown has ended:
+                                        </li>
+                                        <p></p>
+                                            <ul style="list-style-type: none;">
+                                                <li> 
+                                                    a) convert your Watts to Power Cells to double your production or
+                                                </li>
+                                                <p></p>
+                                                <li> 
+                                                    b) sell your Watts for ETC.
+                                                </li>
+                                                <p></p>
+                                        </ul>
+                                        <li>
+                                            3. You can always sell your Watts before the countdown ends. Doing so will reset the countdown.
+                                        </li>
+                                    </ul>
                                     <p class="text-white">All actions cost a small transaction fee whether you're converting, selling or buying. This fee goes directly to the Commonwealth Divies to be split amongst all Flux Points holders.</p>
                                     
                                 </div>
+                                    
                             </div>
-                        </div>                        
-                    </div>                                                                                   
-                </div>      
+                        </div>
+                    </div>                        
+                </div>                                                                                                         
                 
                     <div class="row">
                         <div class="col-md-4 ml-auto mr-auto">
