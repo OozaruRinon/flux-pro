@@ -79,7 +79,7 @@
                     <div class="navbar-collapse-header">
                         <div class="row">
                             <div class="col-6 collapse-brand">
-                                <a>FLUX</a>
+                                <a>Flux | Arcadium Network</a>
                             </div>
                             <div class="col-6 collapse-close text-right">
                                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -141,16 +141,18 @@
             </div>
         </nav>
         <!-- End Navbar -->
+        
         <div class="wrapper">
             <div class="page-header">
                 <img src="assets/img/dots.png" class="dots">
                 <img src="assets/img/path4.png" class="path">
                 <div class="container align-items-center">
-                    <div class="row text-center">
+                    <div class="row text-white text-center">
                         <div class="col-md-6 ml-auto mr-auto">
-                            <div class="card card-coin border-info animated fadeInRight delay-2s">                                
-                                <div class="card-coin-header text-white text-center"><br /><h3><img src="assets/img/etherum.png" alt="Circle image" class="img-fluid rounded" style="width: 20px; height: 25px;"> How it Works</h3></div>
-                                <div class="card-body text-white text-left">
+                            <div class="card card-coin border-info animated fadeInRight delay-2s">
+                                
+                                <div class="card-coin-header"><br /><h3><img src="assets/img/etherum.png" alt="Circle image" class="img-fluid rounded" style="width: 20px; height: 25px;"> How it Works</h3></div>
+                                <div class="card-body">
                                     
                                     <ul class="text-left" style="list-style-type: none;">
                                         <li>
@@ -175,10 +177,10 @@
                                             3. You can always sell your Watts before the countdown ends. Doing so will reset the countdown.
                                         </li>
                                     </ul>
-                                </div>                                                                    
+                                </div>                                
+                                    
                             </div>
-                     </div>
-                    
+                        </div>
                         <div class="col-md-6 ml-auto mr-auto">
                             <div class="card card-coin border-danger animated fadeInRight delay-2s">
                                 <div class="card-coin-header text-white"><br /><h3><i class="fas fa-dollar-sign"></i> Buy Power</h3></div>
@@ -190,17 +192,18 @@
                             </div>
                         </div>
                     </div>
-                </div>   
-            </div>   
-   
+                                        
+                </div>
+            </div>
+        
             <section>
                 <div class="container align-items-center">
-                    <div class="row text-center">
+                    <div class="row text-white text-center">
                         <div class="col-md-6 ml-auto mr-auto">
                             <div class="card card-coin border-warning animated fadeInLeft delay-2s">
                              <div class="card-coin-header text-white"><br /><h3><i class="fas fa-battery-three-quarters"></i> Your Grid</h3></div>
                                  <div class="card-body text-white text-center">
-                                     <h4 class="text-white"><span class="numalien"><img src="assets/img/cells.jpg" alt="Power Cells image" class="img-fluid rounded-circle shadow-lg" style="width: 50px; height: 50px;"> ?</span> Power Cells</h4>
+                                     <h4><span class="numalien"><img src="assets/img/cells.jpg" alt="Power Cells image" class="img-fluid rounded-circle shadow-lg" style="width: 50px; height: 50px;"> ?</span> Power Cells</h4>
                                      <p><b>Generating <span id="production">?</span> watts per hour<br />
                                          (<span id="timeuntilfull">?</span> until your Cell Converter is full)</b></p>
                                          <a href="powerinc.html#" class="btn btn-inner" id="getfreealien" onclick="getFreeAlien(displayTransactionMessage)" padding-left:16px; padding-right:16px>Get 100 free Power Cells</a>
@@ -215,16 +218,16 @@
                         <div class="col-md-6 ml-auto mr-auto">
                             <div class="card card-coin border-success animated fadeIn delay-2s">                                
 
-                                <div class="card-coin-header text-white"><br /><h3><i class="fas fa-industry"></i> Power Factory</h3></div>
+                                <div class="card-coin-header"><br /><h3><i class="fas fa-industry"></i> Power Factory</h3></div>
                                 <div class="card-body text-white text-center">                                                    
-                                    <h4 class="text-white"><span class="numeggs"><img src="assets/img/power.jpg" alt="Raised circle image" class="img-fluid rounded-circle shadow-lg" style="width: 50px; height: 50px;"> ?</span> Watts</h4>
+                                    <h4><span class="numeggs"><img src="assets/img/power.jpg" alt="Raised circle image" class="img-fluid rounded-circle shadow-lg" style="width: 50px; height: 50px;"> ?</span> Watts</h4>
                                         <p><b>Generated in the last <span id="timesincefull">?</span> hours<br /></b>
                                         
                                     <p class="text-success"><span id="sellsforexample">&nbsp;</span></p>
                                     <br />
                                     <br />                      
                                 </div>
-                                <div class="card-footer text-white text-center">
+                                <div class="card-footer">
                                     <a href="powerinc.html#" class="btn btn-block btn-success" onclick="sellEggs(displayTransactionMessage)">Sell Watts For <span id="sellprice">?</span> ETC </a><br />
                                 </div>
                             </div>
@@ -233,22 +236,19 @@
                         
                     </div>    
                     
-                                        
+                    <div class="row text-white text-center">                    
                         
                         
-                        
-                        
-                                            
-                </div>                                                                                                         
-                
+                    </div>
+                    
                     <div class="row">
-                        <div class="col-md-4 ml-auto mr-auto">
+                        <div class="col">
                             <div id="current"></div>
-                        </div>
-                        <div class="col-md-3"></div>
-                    </div>                            
-                
-            </section>
+                        </div>                        
+                    </div>
+                    
+                </div>
+            </section>                            
             
             <footer class="footer">
                 <div class="container">
@@ -258,12 +258,11 @@
                         </div>
                         <div class="col-md-3">
                             <ul class="nav">
-                                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                                <li class="nav-item"><a href="flux.html" class="nav-link">Flux</a></li>
-                                <li class="nav-item"><a href="racearena.html" class="nav-link">Race Arena</a></li>
-                                <li class="nav-item"><a href="powerinc.html" class="nav-link">Power Inc</a></li>
-                                <li class="nav-item"><a href="vault.html" class="nav-link">Vault</a></li>
-                                <li class="nav-item"><a href="korax.html" class="nav-link">Kora X</a></li>
+                                <li class="nav-item"><a href="https://flux.arcadium.network" class="nav-link">Home</a></li>
+                                <li class="nav-item"><a href="https://racearena.arcadium.network" class="nav-link">Race Arena</a></li>
+                                <li class="nav-item"><a href="https://powerinc.arcadium.network" class="nav-link">Power Inc</a></li>
+                                <li class="nav-item"><a href="https://vault.arcadium.network" class="nav-link">Vault</a></li>
+                                <li class="nav-item"><a href="https://korax.arcadium.network" class="nav-link">Kora X</a></li>
                             </ul>
                         </div>
                         <div class="col-md-3">
@@ -335,5 +334,5 @@
         <script src="assets/lib/use.js"></script>
         <script src="assets/lib/charts.js"></script>
         <script src="assets/lib/prices.js"></script>
-    </body>
+    </body>    
 </html>
