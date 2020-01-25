@@ -150,17 +150,17 @@
             
             <section>
                 <div class="container align-items-center">
-                    <div class="row text-left">
+                    <div class="row text-center">
                         <div class="col-md-6 ml-auto mr-auto">
-                            <div class="card border-info animated fadeInLeft delay-2s">
-                             <div class="card-header bg-primary text-white">Your Grid</div>
-                                 <div class="card-body bg-primary text-white text-center">
-                                     <h4 class="text-white"><span class="numalien">?</span> Power Cells</h4>
+                            <div class="card card-coin border-warning animated fadeInLeft delay-2s">
+                             <div class="card-coin-header text-white"><br /><h3><i class="fas fa-battery-three-quarters"></i> Your Grid</h3></div>
+                                 <div class="card-body text-white text-center">
+                                     <h4 class="text-white"><span class="numalien"><img src="assets/img/cells.jpg" alt="Power Cells image" class="img-fluid rounded-circle shadow-lg" style="width: 50px; height: 50px;"> ?</span> Power Cells</h4>
                                      <p><b>Generating <span id="production">?</span> watts per hour<br />
                                          (<span id="timeuntilfull">?</span> until your Cell Converter is full)</b></p>
                                          <a href="powerinc.html#" class="btn btn-inner" id="getfreealien" onclick="getFreeAlien(displayTransactionMessage)" padding-left:16px; padding-right:16px>Get 100 free Power Cells</a>
                                  </div>
-                                 <div class="card-footer bg-primary text-white text-center">
+                                 <div class="card-footer text-white text-center">
                                      <a href="powerinc.html#" onclick="hatchEggs1(displayTransactionMessage)" class="btn btn-block btn-info">Convert <span id="hatchalienquantity">?</span> Watts</a><br />
                                  </div>
                             </div>
@@ -168,17 +168,18 @@
                         </div>                                               
                         
                         <div class="col-md-6 ml-auto mr-auto">
-                            <div class="card border-success animated fadeIn delay-2s">                                
+                            <div class="card card-coin border-success animated fadeIn delay-2s">                                
 
-                                <div class="card-header bg-primary text-white">Power Factory</div>
-                                <div class="card-body bg-primary text-white text-center">                                                    
+                                <div class="card-coin-header text-white"><br /><h3><i class="fas fa-industry"></i> Power Factory</h3></div>
+                                <div class="card-body text-white text-center">                                                    
                                     <h4 class="text-white"><span class="numeggs"><img src="assets/img/power.jpg" alt="Raised circle image" class="img-fluid rounded-circle shadow-lg" style="width: 50px; height: 50px;"> ?</span> Watts</h4>
                                         <p><b>Generated in the last <span id="timesincefull">?</span> hours<br /></b>
                                         
                                     <p class="text-success"><span id="sellsforexample">&nbsp;</span></p>
                                     <br />
                                     <br />                      
-                        
+                                </div>
+                                <div class="card-footer text-white text-center">
                                     <a href="powerinc.html#" class="btn btn-block btn-success" onclick="sellEggs(displayTransactionMessage)">Sell Watts For <span id="sellprice">?</span> ETC </a><br />
                                 </div>
                             </div>
@@ -187,12 +188,12 @@
                         
                     </div>    
                     
-                    <div class="row text-left">                    
+                    <div class="row text-center">                    
                         
                         <div class="col-md-6 ml-auto mr-auto">
-                            <div class="card border-danger animated fadeInRight delay-2s">
-                                <div class="card-header bg-primary text-white">Buy Power</div>
-                                <div class="card-body bg-primary text-white text-center">
+                            <div class="card card-coin border-danger animated fadeInRight delay-2s">
+                                <div class="card-coin-header text-white"><br /><h3><i class="fas fa-dollar-sign"></i> Buy Power</h3></div>
+                                <div class="card-body text-white text-center">
                                     <h4 class="text-white"><span id="eggstobuy">?</span> Watts for </h4>
                                     <input class="form-control" type="number" onchange="updateBuyPrice()" step="0.01" value="0.01" id="ethtospend"><br />
                                     <a href="powerinc.html#" onclick="buyEggs2()" class="btn btn-block btn-danger">Buy Power</a>
@@ -201,10 +202,10 @@
                         </div>
                         
                         <div class="col-md-6 ml-auto mr-auto">
-                            <div class="card border-danger animated fadeInRight delay-2s">
+                            <div class="card card-coin border-info animated fadeInRight delay-2s">
                                 
-                                <div class="card-header bg-primary text-white text-left"><img src="assets/img/etherum.png" alt="Circle image" class="img-fluid rounded" style="width: 50px; height: 50px;">&nbsp; How it Works</div>
-                                <div class="card-body bg-primary text-white text-left">
+                                <div class="card-coin-header text-white text-left"><h3><br /><span>&nbsp;&nbsp;&nbsp;</span><img src="assets/img/etherum.png" alt="Circle image" class="img-fluid rounded" style="width: 20px; height: 25px;"> How it Works</h3></div>
+                                <div class="card-body text-white text-left">
                                     <p class="text-white"> Power Inc is a dApp originally designed as an ethereum-based idle game. Arcadium Network has since reconfigured it to work for the Commonwealth community and given it a redesign more inline with our other products. The first 100 Power Cells are free and once claimed start the 24 hour countdown.</p>
                                     
                                     <p class="text-white">Every 24 hours each Power Cell will produce an additional Watt. Each Watt can then be either converted into an additional Power Cell or sold for ETC. If you convert at the end of the 24 hour countdown, you will double your Power Cells. Alternatively, you may choose to sell Watts before the countdown ends, which will reset the countdown.</p>
