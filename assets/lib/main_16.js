@@ -1,4 +1,4 @@
-var modal
+﻿var modal
 var modalContent
 var lastNumEggs=-1
 var lastNumAlien=-1
@@ -38,8 +38,8 @@ function main(){
                     if (err != null) console.error(err);
                     else {
                         audio.play();
-                        alertify.notify(res.args.Aliens + " Watts have been converted", 'event', 5);
-                        console.log(res.args.Aliens + " Watts have been converted");
+                        alertify.notify(res.args.Aliens + " alien eggs have just finished hatching", 'event', 5);
+                        console.log(res.args.Aliens + " alien eggs have just finished hatching");
                     }
                 });
                 var onSellEggs = myContract.onSellEggs({}, "latest");
@@ -47,8 +47,8 @@ function main(){
                     if (err != null) console.error(err);
                     else {
                         audio.play();
-                        alertify.notify("Someone was paid " + BigNumber(res.args.ethereumEarned).div(1e18).toFixed(6) + " ETC by selling their current power supply", 'event', 5);
-                        console.log("Someone was paid " + BigNumber(res.args.ethereumEarned).div(1e18).toFixed(6) + " ETC by selling their current power supply");
+                        alertify.notify("Someone earned " + BigNumber(res.args.ethereumEarned).div(1e18).toFixed(6) + " ETC selling alien eggs", 'event', 5);
+                        console.log("Someone earned " + BigNumber(res.args.ethereumEarned).div(1e18).toFixed(6) + " ETC selling alien eggs");
                     }
                 });
                 var onBuyEggs = myContract.onBuyEggs({}, "latest");
@@ -56,8 +56,8 @@ function main(){
                     if (err != null) console.error(err);
                     else {
                         audio.play();
-                        alertify.notify("Someone bought " + BigNumber(res.args.incomingEthereum).div(1e18).toFixed(6) + " ETC worth of Power (Watts)", 'event', 5);
-                        console.log("Someone bought " + BigNumber(res.args.incomingEthereum).div(1e18).toFixed(6) + " ETC worth of Power (Watts)");
+                        alertify.notify("Someone bought " + BigNumber(res.args.incomingEthereum).div(1e18).toFixed(6) + " ETC worth of alien eggs", 'event', 5);
+                        console.log("Someone bought " + BigNumber(res.args.incomingEthereum).div(1e18).toFixed(6) + " ETC worth of alien eggs");
                     }
                 });
             }
@@ -83,7 +83,7 @@ function refreshData(){
         calculateEggSell(eggs,function(wei){
             devFee(wei,function(fee){
                 console.log('examplesellprice ',wei)
-                sellsforexampledoc.textContent=formatEggs(eggs)+' Watts will currently sell for '+formatEthValue(web3.fromWei(wei-fee,'ether'))+' ETC.'
+                sellsforexampledoc.textContent='('+formatEggs(eggs)+' eggs would sell for '+formatEthValue(web3.fromWei(wei-fee,'ether'))+')'
             });
         });
     });

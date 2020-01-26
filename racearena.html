@@ -150,11 +150,11 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 animated fadeInLeft delay-2s">
                             <h1 class="profile-title text-left animated fadeInDown delay-3s"><i class="fas fa-coins"></i> <span id="stage"></span></h1>
-                            <h5 class="text-on-back">BIG HEADING</h5>
+                            <h5 class="text-on-back">RACE ARENA</h5>
                             <p class="profile-description">
                                 <br />
                                 <small class="text-white">
-                                    <b class="badge badge-pill badge-primary">Your Dividends: <span id="myCropDividendsInfo"></span></b> 
+                                    <b class="badge badge-pill badge-primary">Dividends: <span id="sac"></span></b> 
                                 </small>                                
                             </p>
                         </div>
@@ -169,6 +169,7 @@
                                     <ul class="nav nav-tabs nav-tabs-primary justify-content-center">
                                         <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#linka">Game</a></li>
                                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkb">Info</a></li>
+                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkc">Rules</a></li>
                                     </ul>
                                     <div class="tab-content tab-subcategories">
                                         <div class="tab-pane active" id="linka">
@@ -209,41 +210,25 @@
                                         </div>
                                         
                                         <div class="tab-pane" id="linkb">
+                                            <p id="status" style="text-align:center"></p>
+                                            <p id="players" style="text-align:center"></p>
+                                            <p class="text-center"><span id="vault"></span></p>
+                                        </div>
+                                        
+                                        <div class="tab-pane" id="linkc">
                                             <div class="row">
                                                 <div class="col">
-                                                    <p>
+                                                    <p class="text-center">
                                                         Only <span id="winnings"></span><br />
                                                         <span id="playersize"></span>, <span id="offersize" class="text-white"></span>
                                                         <br />
                                                     </p>
                                                 </div>
                                             </div>
-
-                <h3 class="text-white text-center"><span id="sac"></span></h3>
-                   
-                <p id="status" style="text-align:center"></p>
-                <p id="players" style="text-align:center"></p>
-                <p class="text-center text-success">Your Address: <b><span id="playeraddress"></span></b></p>
-                <p class="text-center"><span id="vault"></span></p>
-                                        </div>
-                                        
-                                        <div class="tab-pane" id="linkc">
-                                            <input type="text" id="transferAddress" class="form-control" placeholder="Destination Address"><br />
-                                            <input type="text" id="transferTokenCount" class="form-control" placeholder="Amount of Points"><br />
-                                            <a id="transfer" class="btn btn-block btn-info" href="#"><i class="right arrow icon"></i> Transfer</a>
                                         </div>
                                         
                                         <div class="tab-pane" id="linkd">
-                                            <h3 class="text-center">My Dividends: <br /><span id="myCropDividends"></span> ETC</h3>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <a class="btn btn-block btn-info" id="withdraw" href="#"><i class="fas fa-wallet text-white"></i> Withdraw</a>
-                                                </div>
-                                                
-                                                <div class="col">
-                                                    <a class="btn btn-block btn-success" id="reinvest" href="#"><i class="fas fa-recycle text-white"></i> Compound</a>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
