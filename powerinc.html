@@ -148,7 +148,7 @@
                     
                     <div class="row text-justify">
                         <div class="col-md-10">
-                            <h1 class="text-white display-3"><img src="assets/img/powerinc_icon.png" alt="Circle image" class="img-fluid rounded" style="width: 50px; height: 50px;"> Power Inc.</h1>
+                            <h1 class="text-white display-3 animated flipInY delay-2s"><img src="assets/img/powerinc_icon.png" alt="Circle image" class="img-fluid rounded" style="width: 50px; height: 50px;"> Power Inc.</h1>                                                        
                         </div>
                         <div class="col-md-2">
                             <div class="card card-plain border-info animated rollIn delay-3s">                                
@@ -160,7 +160,7 @@
                                 </div>
                             </div>                            
                         </div>
-                    </div><br />
+                    </div>
                     
                     <div class="row text-center">
                         <div class="col-md-6 ml-auto mr-auto">
@@ -188,7 +188,7 @@
                                                 <p></p>
                                         </ul>
                                         <li>
-                                            3. You can always sell your Watts before the countdown ends. Doing so will reset the countdown.
+                                            3. You can always sell or convert your Watts before the countdown ends which will reset the countdown.
                                         </li>
                                     </ul>
                                     <br />
@@ -224,9 +224,11 @@
                             <div class="card card-coin border-warning animated fadeInLeft delay-2s">
                              <div class="card-coin-header text-white"><br /><h3><i class="fas fa-industry"></i> Your Grid</h3></div>
                                  <div class="card-body text-white text-center">
-                                     <h4 class="text-white"><img src="assets/img/cells.jpg" alt="Power Cells image" class="img-fluid rounded-circle shadow-lg" style="width: 50px; height: 50px;"><span class="numalien"></span> Power Cells</h4>
+                                     <h4 class="text-white"><img src="assets/img/cells.jpg" alt="Power Cells image" class="img-fluid rounded-circle shadow-lg" style="width: 50px; height: 50px;"> <span class="numalien"></span> Power Cells</h4>
                                      <p><b>Generating <span id="production">?</span> watts per hour<br />
-                                         (<span id="timeuntilfull">?</span> until your Cell Converter is full)</b></p>
+                                         (<span id="timeuntilfull">?</span> until your Cell Converter is full)
+                                        </b>
+                                     </p>
                                          <a href="powerinc.html#" class="btn btn-inner" id="getfreealien" onclick="getFreeAlien(displayTransactionMessage)" padding-left:16px; padding-right:16px>Get 100 free Power Cells</a>
                                  </div>
                                  <div class="card-footer text-white text-center">
@@ -241,17 +243,20 @@
 
                                 <div class="card-coin-header text-white"><br /><h3><i class="fas fa-dollar-sign"></i> Sell Power</h3></div>
                                 <div class="card-body text-white text-center">                                                    
-                                    <h4 class="text-white"><img src="assets/img/power.jpg" alt="Raised circle image" class="img-fluid rounded-circle shadow-lg" style="width: 50px; height: 50px;"><span class="numeggs"></span> Watts</h4>
-                                    <p><b>Generated in the last <span id="timesincefull">?</span> hours<br /></b></p>
+                                    <h4 class="text-white"><img src="assets/img/power.jpg" alt="Raised circle image" class="img-fluid rounded-circle shadow-lg" style="width: 50px; height: 50px;"> <span class="numeggs"></span> Watts</h4>
+                                    <p><b>Generated in the last <span id="timeElapsed">?</span><br />
+                                        <span class="text-success" id="sellsforexample"></span>
+                                        </b>
+                                    </p>
                                         
-                                    <p class="text-success"><span id="sellsforexample">&nbsp;</span></p>                      
+                                                        
                                 </div>
                                 <div class="card-footer text-white text-center">
                                     <a href="powerinc.html#" class="btn btn-block btn-md btn-success" onclick="sellEggs(displayTransactionMessage)">Sell Watts For <span id="sellprice">?</span> ETC </a><br />
                                 </div>
                             </div>
                         </div>
-                        
+                        <br />
                     </div>  
                 </div>                                                                                                         
                 
@@ -470,7 +475,8 @@
             }    
             .butthidden { display:none; visibility:hidden }
         </style>
-	
+        
+        
         <script>
             alertify.defaults.transition = "zoom";
             alertify.defaults.theme.ok = "btn btn-primary";

@@ -456,9 +456,7 @@
 	}
 ]
 
-//
 	contractAddress = "0xE8be2E87d586B72461c471bED2Ee52bdf6A7b0f8"  // Changed to a new Power Inc contract, where DevFee goes to Divies
-//
 
 function buyEggs(eth,callback){
     var contractAbi = web3.eth.contract(abi);
