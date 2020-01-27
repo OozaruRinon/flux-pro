@@ -121,11 +121,11 @@ function refreshData(){
         }
                 
     var hatchalienquantitydoc=document.getElementById('hatchalienquantity')
-    hatchalienquantitydoc.textContent=translateQuantity(eggs,0)
+    hatchalienquantitydoc.textContent=''+formatEggs(eggs)+''
     var allnumeggs=document.getElementsByClassName('numeggs')
     for(var i=0;i<allnumeggs.length;i++){
         if(allnumeggs[i]){
-            allnumeggs[i].textContent=translateQuantity(eggs,0)
+            allnumeggs[i].textContent=''+formatEggs(eggs)+''
         }
     }        
 });
