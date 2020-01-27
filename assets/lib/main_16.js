@@ -121,11 +121,11 @@ function refreshData(){
         }
                 
     var hatchalienquantitydoc=document.getElementById('hatchalienquantity')
-    hatchalienquantitydoc.textContent=''+formatEggs(eggs)+''
+    hatchalienquantitydoc.textContent=translateQuantity(eggs/eggstohatch1)
     var allnumeggs=document.getElementsByClassName('numeggs')
     for(var i=0;i<allnumeggs.length;i++){
         if(allnumeggs[i]){
-            allnumeggs[i].textContent=''+formatEggs(eggs)+''
+            allnumeggs[i].textContent=translateQuantity(eggs/eggstohatch1)
         }
     }        
 });
@@ -221,12 +221,12 @@ function translateQuantity(quantity,precision){
     if(precision == undefined){
         precision=0             
         if(quantity>1000000000000){
-            precision=3
-        }
-        if(quantity>1000000000){
             precision=2
         }
-        if(quantity<10000){
+        if(quantity>1000000){
+            precision=1
+        }
+        if(quantity<100000){
             precision=1
         }
         if(quantity<1000){
@@ -240,6 +240,10 @@ function translateQuantity(quantity,precision){
         }
     }
     //console.log('??quantity ',typeof quantity)
+    if(quantity>1000){
+        modifier='K'
+        finalquantity=quantity/1000
+    }
     if(quantity>1000000){
         modifier='M'
         finalquantity=quantity/1000000
@@ -254,18 +258,38 @@ function translateQuantity(quantity,precision){
     }
     
     if(quantity>1000000000000000){
-        modifier='Qd'
+        modifier='Qd.'
         finalquantity=quantity/1000000000000000
     }
 
     if(quantity>1000000000000000000){
-        modifier='Qt'
+        modifier='Qt.'
         finalquantity=quantity/1000000000000000000
     }
     
     if(quantity>1000000000000000000000){
-        modifier='Sx'
+        modifier='Sxt.'
         finalquantity=quantity/1000000000000000000000
+    }
+    
+    if(quantity>1000000000000000000000000){
+        modifier='Spt.'
+        finalquantity=quantity/1000000000000000000000000
+    }
+    
+    if(quantity>1000000000000000000000000000){
+        modifier='Oct.'
+        finalquantity=quantity/1000000000000000000000000000
+    }
+    
+    if(quantity>1000000000000000000000000000000){
+        modifier='Non.'
+        finalquantity=quantity/1000000000000000000000000000000
+    }
+    
+    if(quantity>1000000000000000000000000000000000){
+        modifier='Dec.'
+        finalquantity=quantity/1000000000000000000000000000000000
     }
     
     if(precision==0){
