@@ -219,7 +219,13 @@ function translateQuantity(quantity,precision){
     finalquantity=quantity
     modifier=''
     if(precision == undefined){
-        precision=0
+        precision=0             
+        if(quantity>1000000000000){
+            precision=3
+        }
+        if(quantity>1000000000){
+            precision=2
+        }
         if(quantity<10000){
             precision=1
         }
