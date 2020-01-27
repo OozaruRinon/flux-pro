@@ -298,6 +298,7 @@ function secondsToString(seconds)
     
     return numhours + "h " + numminutes + "m "//+numseconds+"s";
 }
+
 function disableButtons(){
     var allnumalien=document.getElementsByClassName('btn-lg')
     for(var i=0;i<allnumalien.length;i++){
@@ -306,6 +307,7 @@ function disableButtons(){
         }
     }
 }
+
 function enableButtons(){
     var allnumalien=document.getElementsByClassName('btn-lg')
     for(var i=0;i<allnumalien.length;i++){
@@ -314,6 +316,7 @@ function enableButtons(){
         }
     }
 }
+
 web3.version.getNetwork((err, netId) => {  
   switch (netId) {
     case "1":

@@ -61,7 +61,7 @@
         <script src="assets/js/modernizr.min.js"></script>
     </head>
 
-    <body class="profile-page">
+    <body id="dapp" class="profile-page">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg fixed-top navbar-transparent animated fadeInDown delay-1s" color-on-scroll="100">
             <div class="container">
@@ -148,74 +148,126 @@
                 <img src="assets/img/path4.png" class="path">
                 <div class="container align-items-center">
                     <div class="row">
+                        
+                        <!-- Left Pane -->
                         <div class="col-lg-6 col-md-6 animated fadeInLeft delay-2s">
-                            <h1 class="profile-title text-left animated fadeInDown delay-3s"><i class="fas fa-coins"></i> <span id="myCropTokens"></span> Points</h1>
-                            <h5 class="text-on-back"><i class="fab fa-ethereum"></i> <span id="myETCValue">0</span> ETC</h5>
-                            <p class="profile-description animated flipInX delay-3s">
-                                <br />
-                                
-                                <small class="text-white">
-                                    <b class="badge badge-pill badge-default" style="font-size: 14px;">Your Dividends: <span id="myCropDividendsInfo"></span> ETC</b> 
-                                </small> 
-                                
-                            </p>
+                            <h1 class="profile-title text-left animated fadeInDown delay-3s">Arcadium Network Vault</h1>
+                            <h5 class="text-on-back"><i class="fab fa-ethereum"></i> ETC</h5>
+                            <div class="card border-success animated fadeInLeft delay-2s">
+                                <div class="card-header text-white">What is Vault?</div>
+                                <div class="card-body text-white">
+                                    <p class="text-center">Vault is an implementation of "Time-Locked Wallets", originally by <i class="text-success" target="_blank">Radek Ostrofski</i> - modified just to hold ETC.</p>
+                                    
+                                    <hr />
+                                    
+                                    <ul>
+                                        <li>Create as many wallet contracts as you like</li>
+                                        <li>Deposit ETC to your wallets any time</li>
+                                        <li>Withdraw ETC only when it&apos;s time</li>
+                                        <li>Optionally assign a beneficiary other than yourself</li>
+                                    </ul>
+                                    
+                                    <hr />
+                                    
+                                    <p class="text-center"><b class="text-danger">WARNING: </b>Do not deposit anything other than ETC to your wallet contracts!</p>
+                        
+                                    
+                                </div>
+                                <div class="card-footer text-white"></div>
+                            </div>
+                            <br />
                         </div>
+                        
+                        <!-- Right pane -->
                         <div class="col-md-6 ml-auto mr-auto">
                             <div class="card card-coin card-plain animated fadeInRight delay-2s">
                                 <div class="card-header">
-                                    <img src="assets/img/whale.png" class="img-center img-fluid rounded-circle">
-                                    <h4 class="title">Right now, 1 Point costs <span id="priceUSD"></span> USD.</h4>
+                                    <img src="assets/img/logo.png" class="img-center img-fluid rounded-circle">
+                                    <h4 class="title"><i>Deposit anytime, only withdraw when it&apos;s time</i></h4>
                                     <small class="text-white text-center"></small>
                                 </div>
                                 <div class="card-body">
                                     <ul class="nav nav-tabs nav-tabs-primary justify-content-center">
-                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#linka">Buy</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkb">Sell</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkc">Transfer</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkd">Dividends</a></li>
+                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#linka">New Wallet</a></li>
+                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkb">Deposit</a></li>
+                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkc">Withdraw</a></li>
                                     </ul>
                                     <div class="tab-content tab-subcategories">
                                         <div class="tab-pane active" id="linka">
-                                            <h3 class="text-white"><strong>Price: </strong><span id="tokenBuyGet">0.0000</span></h3>
-                                            <input placeholder="ETC to Spend..." class="form-control" type="text" id="buyInput"><br />
-                                            <a id="buy" class="btn btn-block btn-success" href="#">Buy Points</a>
-                                            <div id="buyAmount" class="ui fluid large basic green button approx no click buy-amount">
-                                                <i>How much will you buy?</i>
-                                            </div>
+                                            <form id="create-wallet-form">
+                                                <div class="form-group">
+                                                    <label for="ethereumAddress">Receiver Address</label>
+                                                    <input id="ethereumAddress" type="text" class="form-control" placeholder="Reciever eth address">
+                                                </div>
+                        
+                                                <div class="form-group">
+                                                    <label for="unlockDate">Unlock Time (UTC)</label>
+                                                    <input id="unlockDate" type="datetime-local" class="form-control">
+                                                </div>
+                        
+                                                <div class="form-group">
+                                                    <label for="etherAmount"><i>(Optional)</i> ETC Amount</label>
+                                                    <input id="etherAmount" type="number" min="0" step="0.001" class="form-control" placeholder="ETH amount">
+                                                    <small>Enter an amount of ETC if you wish to create this wallet with initial value. You <b>MUST</b> have the available balance in your main wallet - this is not a magical ETC fountain.</small>
+                                                </div>
+                                                <button type="submit" class="btn btn-success btn-block text-white">Create Wallet</button>
+                                            </form>
                                         </div>
                                         
                                         <div class="tab-pane" id="linkb">
-                                            <h3 class="text-white"><strong>Price: </strong><span class="buy-price" id="tokenSellGet">0.00</span></h3>
-                                            <input placeholder="Points to Sell..." class="form-control" type="text" id="sellInput"><br />
-                                            <a id="sell" class="btn btn-block btn-danger" href="#">Sell Points</a>
-                                            <div id="sellAmount" class="ui fluid large basic blue button no click approx" style="margin-top:10px;">
-                                                <i>How much will you sell?</i>
-                                            </div>
+                                            <form id="topup-wallet-form">
+                                                <div class="form-group">
+                                                    <label for="knownWalletAddresses">Target Wallet Contract Address</label>
+                                                    <select class="form-control" id="knownWalletAddresses"></select>
+                                                </div>
+ 
+                                                <div class="form-group">
+                                                    <label for="amount">Amount</label>
+                                                    <input id="amount" type="number" min="0" step="0.001" class="form-control" placeholder="Currency amount">
+                                                </div>
+                        
+                                                <div class="form-group">
+                                                    <label for="currency">Currency</label>
+                                                    <select class="form-control" id="currency">
+                                                        <option value="ether">Ethereum Classic (ETC)</option>
+                                                    </select>
+                                                </div>
+                                                <button type="submit" class="btn btn-success btn-block text-white">Deposit ETC</button>
+                                            </form>
                                         </div>
                                         
                                         <div class="tab-pane" id="linkc">
-                                            <input type="text" id="transferAddress" class="form-control" placeholder="Destination Address"><br />
-                                            <input type="text" id="transferTokenCount" class="form-control" placeholder="Amount of Points"><br />
-                                            <a id="transfer" class="btn btn-block btn-info" href="#"><i class="right arrow icon"></i> Transfer</a>
-                                        </div>
-                                        
-                                        <div class="tab-pane" id="linkd">
-                                            <h3 class="text-center">My Dividends: <br /><span id="myCropDividends"></span> ETC</h3>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <a class="btn btn-block btn-info" id="withdraw" href="#"><i class="fas fa-wallet text-white"></i> Withdraw</a>
+                                            <form id="claim-funds-form">
+                                                <div class="col form-group">
+                                                    <label for="claimWalletAddresses">Wallet Contract Address</label>
+                                                    <select class="form-control" id="claimWalletAddresses">
+                                                    </select>
                                                 </div>
-                                                
-                                                <div class="col">
-                                                    <a class="btn btn-block btn-success" id="reinvest" href="#"><i class="fas fa-recycle text-white"></i> Compound</a>
+                        
+                                                <div class="form-group">
+                                                    <label for="unlockIn">Unlock Time</label>
+                                                    <input id="unlockIn" type="text" disabled class="form-control" placeholder="Unlock time">
                                                 </div>
-                                            </div>
+                        
+                                                <div class="form-group">
+                                                    <label for="claimableAmount">Claimable Amount</label>
+                                                    <input id="claimableAmount" type="number" disabled class="form-control" placeholder="Currency amount">
+                                                </div>
+                        
+                                                <div class="form-group">
+                                                    <label for="claimableCurrency">Currency</label>
+                                                    <select class="form-control" id="claimableCurrency">
+                                                        <option value="ether">Ethereum Classic (ETC)</option>
+                                                    </select>
+                                                </div>
+                                                <button type="submit" id="claim-submit-button" class="btn btn-warning btn-block text-white">Withdraw ETC</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>                                        
+                    </div>
                 </div>                    
             </div>
             
@@ -225,56 +277,15 @@
                         <div class="col animated fadeInUp delay-3s">
                             <div class="card card-plain">
                                 <div class="card-header">
-                                    <h1 class="profile-title text-left">Commonwealth.gg</h1>
-                                    <h5 class="text-on-back">Stats</h5>
+                                    <h1 class="profile-title text-left">My Wallets</h1>
+                                    <h5 class="text-on-back">[X]</h5>
                                 </div>
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table tablesorter" id="plain-table">
-                                            <thead>
-                                                <tr>
-                                                    <td></td>
-                                                    <td><i class="fab fa-ethereum"></i> ETC</td>
-                                                    <td><i class="fas fa-coins"></i> Points</td>
-                                                    <td>USD</td>
-                                                </tr>
-                                            </thead>
-                                                    
-                                            <tbody>
-                                                <tr>
-                                                    <td>Vault</td>
-                                                    <td><span id="etcInContract"></span></td>
-                                                    <td></td>
-                                                    <td><span id="sizeUSD"></span> USD</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>RainMaker</td>
-                                                    <td><span id="rainMakerDividends"></span></td>
-                                                    <td><span id="rainMakerTokens"></span></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Divies</td>
-                                                    <td><span id="diviesBalance"></span></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Dividends Paid to Holders</td>
-                                                    <td><span id="totalDividends"></span></td>
-                                                    <td></td>
-                                                    <td><span id="dividendsUSD">   </span> USD</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    
                                     
                                     <div class="row">
                                         <div class="col">
-                                            <a class="btn btn-block btn-info" id="distribute" href="#"><i class="fas fa-info text-success"></i> Split Divies</a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="btn btn-block btn-warning" id="rainMaker" href="#"><i class="fas fa-cloud text-success"></i> Activate RainMaker</a>
+                                            <table id="wallets-table" class="table table-hover arcadiumElementDark1 text-white"></table><br />
                                         </div>
                                     </div>
                                 </div>
@@ -286,9 +297,8 @@
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
                             <div id="current"></div>
-                        </div>                    
-                    </div>                    
-                    
+                        </div>
+                    </div>
                 </div>
             </section>                        
         
@@ -520,12 +530,19 @@
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
+        
+        
         
  <!-- core Scripts !-->
         <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
         <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
         <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+        <script src="assets/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+        
+        <!-- Scripts for Vault -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
         
     <!-- jquery Scripts !-->
         <script src="assets/js/jquery.lazyload.min.js"></script>
@@ -553,6 +570,7 @@
         <script src="assets/js/web3.min.js"></script>
         <script src="assets/js/clipboard.min.js"></script>
         <script src="assets/js/lodash.min.js"></script>
+        <script src="assets/js/truffle-contract.min.js"></script>
         
     <!-- lib Scripts !-->
 
