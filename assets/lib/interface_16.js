@@ -1,4 +1,4 @@
-abi = [
+﻿abi = [
 	{
 	    "constant": false,
 	    "inputs": [],
@@ -836,5 +836,6 @@ function marketEggs(callback){
         }
     });
 }
+
 
 

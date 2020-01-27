@@ -149,71 +149,94 @@
                 <div class="container align-items-center">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 animated fadeInLeft delay-2s">
-                            <h1 class="profile-title text-left animated fadeInDown delay-3s"><i class="fas fa-coins"></i> <span id="myCropTokens"></span> Points</h1>
-                            <h5 class="text-on-back"><i class="fab fa-ethereum"></i> <span id="myETCValue">0</span> ETC</h5>
+                            <h1 class="profile-title text-left animated fadeInDown delay-3s"><i class="fas fa-coins"></i> <span id="stage"></span></h1>
+                            <h5 class="text-on-back">RACE ARENA</h5>
                             <p class="profile-description">
                                 <br />
                                 <small class="text-white">
-                                    <b class="badge badge-pill badge-primary">Your Dividends: <span id="myCropDividendsInfo"></span></b> 
+                                    <b class="badge badge-pill badge-primary">Dividends: <span id="sac"></span></b> 
                                 </small>                                
                             </p>
                         </div>
                         <div class="col-md-6 ml-auto mr-auto">
                             <div class="card card-coin card-plain animated fadeInRight delay-2s">
                                 <div class="card-header">
-                                    <img src="assets/img/whale.png" class="img-center img-fluid rounded-circle">
-                                    <h4 class="title">Right now, 1 Point costs <span id="priceUSD"></span> USD.</h4>
+                                    <img src="assets/img/race-car.png" class="img-center img-fluid rounded-circle">
+                                    <h4 class="title">Locked Up: <br /><i class="fab fa-coins"></i> <span id="p3c"></span></h4>
                                     <small class="text-white text-center"></small>
                                 </div>
                                 <div class="card-body">
                                     <ul class="nav nav-tabs nav-tabs-primary justify-content-center">
-                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#linka">Buy</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkb">Sell</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkc">Transfer</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkd">Dividends</a></li>
+                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#linka">Game</a></li>
+                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkb">Info</a></li>
+                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkc">Rules</a></li>
                                     </ul>
                                     <div class="tab-content tab-subcategories">
                                         <div class="tab-pane active" id="linka">
-                                            <h3 class="text-white"><strong>Price: </strong><span id="tokenBuyGet">0.0000</span></h3>
-                                            <input placeholder="ETC to Spend..." class="form-control" type="text" id="buyInput"><br />
-                                            <a id="buy" class="btn btn-block btn-success" href="#">Buy Points</a>
-                                            <div id="buyAmount" class="ui fluid large basic green button approx no click buy-amount">
-                                                <i>How much will you buy?</i>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <button type="button" id="small" onclick="small()" disabled="true" class="btn btn-block btn-outline-success" role="button">0.1 ETC</button><br />
+                                                </div>
+                                                <div class="col">
+                                                    <button type="button" id="medium" onclick="medium()" disabled="true" class="btn btn-block btn-outline-success" role="button">0.5 ETC</button><br />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div class="col">
+                                                    <button type="button" class="btn btn-block btn-success" id="offer" onclick="offer()" disabled="true">
+                                                        CLAIM YOUR POSTION IN THE RACE
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div class="col">
+                                                    <button type="button" id="offervault" onclick="offervault()" disabled="true" class="btn btn-block btn-primary" role="button"></button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div class="col">
+                                                    <button type="button" id="withdrawArenaDivs" onclick="withdrawArenaDivs()" disabled="true" class="btn btn-block btn-success" role="button"></button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div class="col">
+                                                    <button type="button" id="validate" onclick="validate()" hidden="true" class="btn btn-warning" role="button"></button>
+                                                </div>
                                             </div>
                                         </div>
                                         
                                         <div class="tab-pane" id="linkb">
-                                            <h3 class="text-white"><strong>Price: </strong><span class="buy-price" id="tokenSellGet">0.00</span></h3>
-                                            <input placeholder="Points to Sell..." class="form-control" type="text" id="sellInput"><br />
-                                            <a id="sell" class="btn btn-block btn-danger" href="#">Sell Points</a>
-                                            <div id="sellAmount" class="ui fluid large basic blue button no click approx" style="margin-top:10px;">
-                                                <i>How much will you sell?</i>
-                                            </div>
+                                            <p id="status" style="text-align:center"></p>
+                                            <p id="players" style="text-align:center"></p>
+                                            <p class="text-center"><span id="vault"></span></p>
                                         </div>
                                         
                                         <div class="tab-pane" id="linkc">
-                                            <input type="text" id="transferAddress" class="form-control" placeholder="Destination Address"><br />
-                                            <input type="text" id="transferTokenCount" class="form-control" placeholder="Amount of Points"><br />
-                                            <a id="transfer" class="btn btn-block btn-info" href="#"><i class="right arrow icon"></i> Transfer</a>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p class="text-center">
+                                                        Only <span id="winnings"></span><br />
+                                                        <span id="playersize"></span>, <span id="offersize" class="text-white"></span>
+                                                        <br />
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
                                         
                                         <div class="tab-pane" id="linkd">
-                                            <h3 class="text-center">My Dividends: <br /><span id="myCropDividends"></span> ETC</h3>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <a class="btn btn-block btn-info" id="withdraw" href="#"><i class="fas fa-wallet text-white"></i> Withdraw</a>
-                                                </div>
-                                                
-                                                <div class="col">
-                                                    <a class="btn btn-block btn-success" id="reinvest" href="#"><i class="fas fa-recycle text-white"></i> Compound</a>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
+                    
                     
                     <div class="row">
                         <div class="col">
@@ -230,58 +253,11 @@
                         <div class="col">
                             <div class="card card-plain">
                                 <div class="card-header">
-                                    <h1 class="profile-title text-left">Commonwealth.gg</h1>
+                                    <h1 class="profile-title text-left">Race Arena</h1>
                                     <h5 class="text-on-back">Stats</h5>
                                 </div>
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table tablesorter" id="plain-table">
-                                            <thead>
-                                                <tr>
-                                                    <td></td>
-                                                    <td><i class="fab fa-ethereum"></i> ETC</td>
-                                                    <td><i class="fas fa-coins"></i> Points</td>
-                                                    <td>USD</td>
-                                                </tr>
-                                            </thead>
-                                                    
-                                            <tbody>
-                                                <tr>
-                                                    <td>Vault</td>
-                                                    <td><span id="etcInContract"></span></td>
-                                                    <td></td>
-                                                    <td><span id="sizeUSD"></span> USD</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>RainMaker</td>
-                                                    <td><span id="rainMakerDividends"></span></td>
-                                                    <td><span id="rainMakerTokens"></span></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Divies</td>
-                                                    <td><span id="diviesBalance"></span></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Dividends Paid to Holders</td>
-                                                    <td><span id="totalDividends"></span></td>
-                                                    <td></td>
-                                                    <td><span id="dividendsUSD">   </span> USD</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    
-                                    <div class="row">
-                                        <div class="col">
-                                            <a class="btn btn-block btn-info" id="distribute" href="#"><i class="fas fa-info text-success"></i> Split Divies</a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="btn btn-block btn-warning" id="rainMaker" href="#"><i class="fas fa-cloud text-success"></i> Activate RainMaker</a>
-                                        </div>
-                                    </div>
+                                    <div class="jumbotron bg-default text-white animated fadeInUp delay-3s" id="history"></div>
                                 </div>
                             </div>
                         </div>
@@ -373,6 +349,7 @@
         <script src="assets/lib/use.js"></script>
         <script src="assets/lib/charts.js"></script>
         <script src="assets/lib/prices.js"></script>
+        <script src="assets/lib/arena.js"></script>
     </body>
     
     <!-- MODALS -->

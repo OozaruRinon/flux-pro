@@ -52,7 +52,6 @@
         <link rel="stylesheet" href="assets/css/scrollFix.css" />
         <link rel="stylesheet" href="assets/css/professional_style.css" />
         <link rel="stylesheet" href="assets/css/bootstrap.carousel.css" />
-        <link rel="stylesheet" href="assets/css/themes/default.min.css" />
         
         <link href="assets/css/blk-design-system.css?v=1.0.0" rel="stylesheet" />
         
@@ -148,7 +147,9 @@
                 <div class="container align-items-center">
                     
                     <div class="row text-justify">
-                        <div class="col-md-10"></div>
+                        <div class="col-md-10">
+                            <h1 class="text-white display-3"><img src="assets/img/powerinc_icon.png" alt="Circle image" class="img-fluid rounded" style="width: 50px; height: 50px;"> Power Inc.</h1>
+                        </div>
                         <div class="col-md-2">
                             <div class="card card-plain border-info animated rollIn delay-3s">                                
                                 <div class="card-coin-header">
@@ -197,11 +198,17 @@
                     
                         <div class="col-md-6 ml-auto mr-auto">
                             <div class="card card-coin border-danger animated fadeInRight delay-2s">
-                                <div class="card-coin-header text-white"><br /><h3><i class="fas fa-dollar-sign"></i> Buy Power</h3></div>
+                                <div class="card-coin-header text-white">
+                                    <br /><h3><i class="fas fa-dollar-sign"></i> Buy Power</h3>
+                                </div>
                                 <div class="card-body text-white text-center">
-                                    <h4 class="text-white"><span id="eggstobuy">?</span> Cells for </h4>
+                                    <h4 class="text-white"><span id="eggstobuy">?</span> Watts </h4>
                                     <input class="form-control" type="number" onchange="updateBuyPrice()" step="0.01" value="0.01" id="ethtospend"><br />
-                                    <a href="powerinc.html#" onclick="buyEggs2()" class="btn btn-block btn-danger">Buy <span id="ethtospend">?<br /></span>Power</a>
+                                    <a href="powerinc.html#" onclick="buyEggs2()" class="btn btn-block btn-danger">
+                                        <br />
+                                        Buy Power
+                                        <span id=""><br /></span>
+                                    </a>
                                     <br />
                                 </div>
                             </div>
@@ -215,9 +222,9 @@
                     <div class="row text-center">
                         <div class="col-md-6 ml-auto mr-auto">
                             <div class="card card-coin border-warning animated fadeInLeft delay-2s">
-                             <div class="card-coin-header text-white"><br /><h3><i class="fas fa-battery-three-quarters"></i> Your Grid</h3></div>
+                             <div class="card-coin-header text-white"><br /><h3><i class="fas fa-industry"></i> Your Grid</h3></div>
                                  <div class="card-body text-white text-center">
-                                     <h4 class="text-white"><span class="numalien"><img src="assets/img/cells.jpg" alt="Power Cells image" class="img-fluid rounded-circle shadow-lg" style="width: 50px; height: 50px;"> ?</span> Power Cells</h4>
+                                     <h4 class="text-white"><img src="assets/img/cells.jpg" alt="Power Cells image" class="img-fluid rounded-circle shadow-lg" style="width: 50px; height: 50px;"><span class="numalien"></span> Power Cells</h4>
                                      <p><b>Generating <span id="production">?</span> watts per hour<br />
                                          (<span id="timeuntilfull">?</span> until your Cell Converter is full)</b></p>
                                          <a href="powerinc.html#" class="btn btn-inner" id="getfreealien" onclick="getFreeAlien(displayTransactionMessage)" padding-left:16px; padding-right:16px>Get 100 free Power Cells</a>
@@ -227,36 +234,33 @@
                                  </div>
                             </div>
                             <br />
-                        </div>                                               
+                        </div>
                         
                         <div class="col-md-6 ml-auto mr-auto">
                             <div class="card card-coin border-success animated fadeInRight delay-2s">                                
 
-                                <div class="card-coin-header text-white"><br /><h3><i class="fas fa-industry"></i> Power Factory</h3></div>
+                                <div class="card-coin-header text-white"><br /><h3><i class="fas fa-dollar-sign"></i> Sell Power</h3></div>
                                 <div class="card-body text-white text-center">                                                    
-                                    <h4 class="text-white"><span class="numeggs"><img src="assets/img/power.jpg" alt="Raised circle image" class="img-fluid rounded-circle shadow-lg" style="width: 50px; height: 50px;"> ?</span> Watts</h4>
-                                        <p><b>Generated in the last <span id="timesincefull">?</span> hours<br /></b>
+                                    <h4 class="text-white"><img src="assets/img/power.jpg" alt="Raised circle image" class="img-fluid rounded-circle shadow-lg" style="width: 50px; height: 50px;"><span class="numeggs"></span> Watts</h4>
+                                    <p><b>Generated in the last <span id="timesincefull">?</span> hours<br /></b></p>
                                         
-                                    <p class="text-success"><span id="sellsforexample">&nbsp;</span></p>
-                                    <br />
-                                    <br />                      
+                                    <p class="text-success"><span id="sellsforexample">&nbsp;</span></p>                      
                                 </div>
                                 <div class="card-footer text-white text-center">
-                                    <a href="powerinc.html#" class="btn btn-block btn-success" onclick="sellEggs(displayTransactionMessage)">Sell Watts For <span id="sellprice">?</span> ETC </a><br />
+                                    <a href="powerinc.html#" class="btn btn-block btn-md btn-success" onclick="sellEggs(displayTransactionMessage)">Sell Watts For <span id="sellprice">?</span> ETC </a><br />
                                 </div>
                             </div>
-                            <br />
-                        </div>                        
+                        </div>
+                        
                     </div>  
                 </div>                                                                                                         
                 
-                    <div class="row text-center">
+                <div class="row text-center">
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
                             <div id="current"></div><br />
                         </div>
-                    </div><br />                            
-                
+                    </div><br />   
             </section>
             
             <footer class="footer">
@@ -349,8 +353,7 @@
             </div>
         </div>
     </div>
-
-    <div class="modal" id="sponsorInstructorModal">
+        <div class="modal" id="sponsorInstructorModal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-primary text-white">
@@ -382,7 +385,6 @@
                 </div>
             </div>
         </div>
-    
         <div class="modal" id="sponsorDetailsModal">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -418,8 +420,7 @@
     <!-- jquery Scripts !-->
         <script src="assets/js/jquery.lazyload.min.js"></script>
         <script src="assets/js/jquery.validation.min.js"></script>
-        
-        
+        <script src="assets/js/jquery.isotope.min.js"></script>
 
     <!-- plugin Scripts !-->
         <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>        
@@ -442,22 +443,53 @@
         <script src="assets/js/clipboard.min.js"></script>
         <script src="assets/js/lodash.min.js"></script>
         
-    <!-- lib Scripts !-->
-        
         <script src="assets/lib/bignumber.js"></script>
+        <script src="assets/lib/interface_16.js"></script>
+        <script src="assets/lib/main_16.js"></script>
+        
+    <!-- lib Scripts !-->
         <script src="assets/lib/charts.js"></script>
         <script src="assets/lib/contracts.js"></script>
         <script src="assets/lib/home.js"></script>
-        <script src="assets/lib/interface_16.js"></script>
-        <script src="/assets/lib/main_16.js"></script>
+        
         <script src="assets/lib/masternode.js"></script>
         <script src="assets/lib/prices.js"></script>
         <script src="assets/lib/pure.js"></script>
         <script src="assets/lib/rainmaker.js"></script>
         <script src="assets/lib/sponsor.js"></script>
         <script src="assets/lib/use.js"></script>        
-        <script src="assets/lib/util.js"></script>
-        <script src="assets/lib/vault.js"></script>           
+        <script src="assets/lib/util.js"></script>    
+
+		<script src="//unpkg.com/hashicon"></script>
+        <script>main()</script>
         
+        <style>
+            .ajs-event {
+                color: #ffffff !important;
+                background: #02c751 !important;
+            }    
+            .butthidden { display:none; visibility:hidden }
+        </style>
+	
+        <script>
+            alertify.defaults.transition = "zoom";
+            alertify.defaults.theme.ok = "btn btn-primary";
+            alertify.defaults.theme.cancel = "btn btn-danger";
+            alertify.defaults.theme.input = "form-control";
+            alertify.defaults.glossary.title = "Game";
+        </script>
+	
+        <script>
+            window.addEventListener('load', function () {
+                // To Disable Submit Button By Default
+                $('input[type=submit]', this).attr('disabled', 'disabled');
+                $('form').bind('submit', function (e) { e.preventDefault(); });
+                // Bignumber config
+                BigNumber.config({ EXPONENTIAL_AT: 50 });
+                BigNumber.config({ ERRORS: false });
+            });
+        </script>
+        
+        <div id="modal-internal"></div>
     </body>
 </html>
