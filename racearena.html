@@ -60,6 +60,11 @@
     </head>
 
     <body class="profile-page">
+        <div style="position: fixed; z-index: -99; width: 100%; height: 100%">
+            <iframe frameborder="0" height="100%" width="100%" src="https://youtube.com/embed/Hd0XQ3lW0BY?autoplay=1&controls=0&showinfo=0&autohide=1&mute=1">
+            </iframe>
+        </div>
+        
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg fixed-top navbar-transparent animated fadeInDown delay-1s" color-on-scroll="100">
             <div class="container">
@@ -142,7 +147,7 @@
                 <div class="container align-items-center">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 animated fadeInLeft delay-2s">
-                            <h1 class="profile-title text-left animated fadeInDown delay-3s"><i class="fas fa-coins"></i> <span id="stage"></span></h1>
+                            <h1 class="profile-title text-left animated fadeInDown delay-3s"><i class="fas fa-flag-checkered"></i> <span id="stage"></span></h1>
                             <h5 class="text-on-back">RACE ARENA</h5>
                             <p class="profile-description">
                                 <br />
@@ -155,15 +160,15 @@
                             <div class="card card-coin card-plain animated fadeInRight delay-2s">
                                 <div class="card-header">
                                     <img src="assets/img/race-car.png" class="img-center img-fluid rounded-circle">
-                                    <h4 class="title">Locked Up: <br /><i class="fab fa-coins"></i> <span id="p3c"></span></h4>
+                                    <h4 class="title">Locked Up: <br /><i class="fas fa-coins"></i> <span id="p3c"></span></h4>
                                     <small class="text-white text-center"></small>
                                 </div>
                                 <div class="card-body">
-                                    <ul class="nav nav-tabs nav-tabs-primary justify-content-center">
-                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#linka">Game</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkb">Info</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkc">Rules</a></li>
-                                    </ul>
+                                    <div class="row">
+                                        <div class="col"><a href="#linka" class="btn btn-sm btn-block btn-success" data-toggle="tab">Game</a></div>
+                                        <div class="col"><a href="#linkb" class="btn btn-sm btn-block btn-success" data-toggle="tab">Info</a></div>
+                                        <div class="col"><a href="#linkc" class="btn btn-sm btn-block btn-success" data-toggle="tab">Rules</a></div>
+                                    </div>
                                     <div class="tab-content tab-subcategories">
                                         <div class="tab-pane active" id="linka">
                                             <div class="row">
