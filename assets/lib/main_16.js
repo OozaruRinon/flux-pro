@@ -3,6 +3,7 @@ var modalContent
 var lastNumEggs=-1
 var lastNumAlien=-1
 var lastSecondsUntilFull=100
+var lastSecondsElapsed=100
 lastHatchTime=0
 var eggstohatch1=864
 var lastUpdate=new Date().getTime()
@@ -102,14 +103,32 @@ function refreshData(){
             latestEggs = eggs
         }        
         var timeuntilfulldoc=document.getElementById('timeuntilfull')
-        secondsuntilfull=eggstohatch1-eggs/lastNumAlien
+        secondsuntilfull=eggstohatch1-eggs/lastNumAlien        
         console.log('secondsuntilfull ',secondsuntilfull,eggstohatch1,eggs,lastNumAlien)
         lastSecondsUntilFull=secondsuntilfull
         timeuntilfulldoc.textContent=secondsToString(secondsuntilfull)
         if(lastNumAlien==0){
             timeuntilfulldoc.textContent='?'
         }
-    });
+        
+        var timeelapseddoc=document.getElementById('timeElapsed')
+        secondselapsed=eggstohatch1+eggs/lastNumAlien        
+        console.log('secondselapsed ',secondselapsed,eggstohatch1,eggs,lastNumAlien)
+        lastSecondsElapsed=secondselapsed
+        timeelapseddoc.textContent=secondsToString(secondselapsed)
+        if(lastNumAlien==0){
+            timeelapseddoc.textContent='?'
+        }
+                
+    var hatchalienquantitydoc=document.getElementById('hatchalienquantity')
+    hatchalienquantitydoc.textContent=translateQuantity(eggs,0)
+    var allnumeggs=document.getElementsByClassName('numeggs')
+    for(var i=0;i<allnumeggs.length;i++){
+        if(allnumeggs[i]){
+            allnumeggs[i].textContent=translateQuantity(eggs,0)
+        }
+    }        
+});
     /*
     getMyStatus(function(res){                
         var gfsdoc=document.getElementById('freeAlien')
@@ -141,16 +160,7 @@ function refreshData(){
         .attr("href", window.location.origin+"?ref="+web3.eth.accounts[0])
         .text(window.location.origin+"?ref="+web3.eth.accounts[0]);
 }
-function updateEggNumber(eggs){
-    var hatchalienquantitydoc=document.getElementById('hatchalienquantity')
-    hatchalienquantitydoc.textContent=translateQuantity(eggs,0)
-    var allnumeggs=document.getElementsByClassName('numeggs')
-    for(var i=0;i<allnumeggs.length;i++){
-        if(allnumeggs[i]){
-            allnumeggs[i].textContent=translateQuantity(eggs)
-        }
-    }
-}
+
 function hatchEggs1(){
     ref=getQueryVariable('ref')
     if(!ref || ref==web3.eth.accounts[0]){
@@ -210,6 +220,10 @@ function translateQuantity(quantity,precision){
     modifier=''
     if(precision == undefined){
         precision=0
+        if(quantity<100000){
+            precision=0
+        }
+        
         if(quantity<10000){
             precision=1
         }
@@ -236,6 +250,22 @@ function translateQuantity(quantity,precision){
         modifier='T'
         finalquantity=quantity/1000000000000
     }
+    
+    if(quantity>1000000000000000){
+        modifier='Q'
+        finalquantity=quantity/1000000000000000
+    }
+
+    if(quantity>1000000000000000000){
+        modifier='P'
+        finalquantity=quantity/1000000000000000000
+    }
+    
+    if(quantity>1000000000000000000000){
+        modifier='S'
+        finalquantity=quantity/1000000000000000000000
+    }
+    
     if(precision==0){
         finalquantity=Math.floor(finalquantity)
     }
@@ -288,7 +318,7 @@ function secondsToString(seconds)
 
     var numhours = Math.floor((seconds % 86400) / 3600);
 
-    var numminutes = Math.floor(((seconds % 86400) % 3600) / 60);
+    var numminutes = Math.floor(((seconds % 86400) % 3600) / 59);
 
     var numseconds = ((seconds % 86400) % 3600) % 60;
     var endstr=""
