@@ -220,10 +220,6 @@ function translateQuantity(quantity,precision){
     modifier=''
     if(precision == undefined){
         precision=0
-        if(quantity<100000){
-            precision=0
-        }
-        
         if(quantity<10000){
             precision=1
         }
@@ -252,17 +248,17 @@ function translateQuantity(quantity,precision){
     }
     
     if(quantity>1000000000000000){
-        modifier='Q'
+        modifier='Qd'
         finalquantity=quantity/1000000000000000
     }
 
     if(quantity>1000000000000000000){
-        modifier='P'
+        modifier='Qt'
         finalquantity=quantity/1000000000000000000
     }
     
     if(quantity>1000000000000000000000){
-        modifier='S'
+        modifier='Sx'
         finalquantity=quantity/1000000000000000000000
     }
     
