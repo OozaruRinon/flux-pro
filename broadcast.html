@@ -144,122 +144,101 @@
                 <div class="container align-items-center">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 animated fadeInLeft delay-2s">
-                            <h1 class="profile-title text-left animated fadeInDown delay-3s"><i class="fas fa-coins"></i> <span id="stage"></span></h1>
-                            <h5 class="text-on-back">RACE ARENA</h5>
-                            <p class="profile-description">
+                            <h1 class="profile-title text-left animated fadeInDown delay-3s"><i class="fas fa-coins"></i> Broadcaster</h1>
+                            <h5 class="text-on-back"><i class="fab fa-ethereum"></i> [X]</h5>
+                            <p class="profile-description animated flipInX delay-3s">
                                 <br />
+                                <a class="btn btn-block btn-md btn-info" href="#"><span id="currentLinkText" class="sponsorPrice">1234/token</span></a>
                                 <small class="text-white">
-                                    <b class="badge badge-pill badge-default" style="font-size: 14px">Dividends: <span id="sac"></span></b> 
-                                </small>                                
+                                    <b class="badge badge-pill badge-default">Broadcast Fees go to Divies!</b> 
+                                </small> 
+                                
                             </p>
+                            
+                            <div class="card border-success animated fadeInLeft delay-2s">
+                                <div class="card-body text-primary">
+                                    <div id="currentImg" class="sponsorPrice">1234/token</div>
+                                    <h3 class="text-white"><span id="currentText" class="sponsorPrice">1234/token</span></h3>
+                                    <span id="currentLink" class="btn btn-block btn-primary">1234/token</span>
+                                    <hr />
+                                    <p>
+                                        <b>Owner <span id="owner"></span></b> - <span id="time" class="sponsorPrice"></span>
+                                    </p>
+                                </div>
+                            </div>
+                            <br />
                         </div>
                         <div class="col-md-6 ml-auto mr-auto">
                             <div class="card card-coin card-plain animated fadeInRight delay-2s">
                                 <div class="card-header">
-                                    <img src="assets/img/race-car.png" class="img-center img-fluid rounded-circle">
-                                    <h4 class="title">Locked Up: <br /><i class="fab fa-coins"></i> <span id="p3c"></span></h4>
+                                    <h4 class="title">The easiest broadcast to a network ever!</h4>
                                     <small class="text-white text-center"></small>
                                 </div>
                                 <div class="card-body">
                                     <ul class="nav nav-tabs nav-tabs-primary justify-content-center">
-                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#linka">Game</a></li>
+                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#linka">Buy</a></li>
                                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkb">Info</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkc">Rules</a></li>
                                     </ul>
                                     <div class="tab-content tab-subcategories">
+                                        
+                                        <!-- Tab A -->
                                         <div class="tab-pane active" id="linka">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <button type="button" id="small" onclick="small()" disabled="true" class="btn btn-block btn-outline-success" role="button">0.1 ETC</button><br />
+                                            <form class="ui form">
+                                                <div class="form-group">
+                                                    <label>Img URL (30x30) - Optional:</label>
+                                                    <input type="text" id="imgLink" class="form-control" placeholder="https://i.imgur.com/7iEyv4Q.png">
                                                 </div>
-                                                <div class="col">
-                                                    <button type="button" id="medium" onclick="medium()" disabled="true" class="btn btn-block btn-outline-success" role="button">0.5 ETC</button><br />
+                        
+                                                <div class="form-group">
+                                                    <label>Text</label>
+                                                    <input type="text" id="text" class="form-control" placeholder="New ICO incoming!">
                                                 </div>
-                                            </div>
+                        
+                                                <div class="form-group">
+                                                    <label>Link Text</label>
+                                                    <input type="text" id="hyperlinkText" class="form-control" placeholder="Click Here.">
+                                                </div>
+                        
+                                                <div class="form-group">
+                                                    <label>Link (include http/https):</label>
+                                                    <input type="text" id="hyperlink" class="form-control" placeholder="https://company.com">
+                                                </div>
+                                            </form>
                                             
-                                            <div class="row">
-                                                <div class="col">
-                                                    <button type="button" class="btn btn-block btn-success" id="offer" onclick="offer()" disabled="true">
-                                                        CLAIM YOUR POSTION IN THE RACE
-                                                    </button>
-                                                </div>
+                                            <div class="row sponsor">
+                                                <p>Preview: </p>
+                                                <div id="sampleAd" class="current"></div>
                                             </div>
-                                            
-                                            <div class="row">
-                                                <div class="col">
-                                                    <button type="button" id="offervault" onclick="offervault()" disabled="true" class="btn btn-block btn-primary" role="button"></button>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="row">
-                                                <div class="col">
-                                                    <button type="button" id="withdrawArenaDivs" onclick="withdrawArenaDivs()" disabled="true" class="btn btn-block btn-success" role="button"></button>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="row">
-                                                <div class="col">
-                                                    <button type="button" id="validate" onclick="validate()" hidden="true" class="btn btn-warning" role="button"></button>
-                                                </div>
-                                            </div>
+                                            <button id="sample"   class="btn btn-block btn-info">Generate Preview</button>
+                                            <button id="purchase" class="btn btn-block btn-success">Purchase for <div id="price">price</div></button>
                                         </div>
                                         
+                                        <!-- Tab B -->
                                         <div class="tab-pane" id="linkb">
-                                            <p id="status" style="text-align:center"></p>
-                                            <p id="players" style="text-align:center"></p>
-                                            <p class="text-center"><span id="vault"></span></p>
-                                        </div>
-                                        
-                                        <div class="tab-pane" id="linkc">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <p class="text-center">
-                                                        Only <span id="winnings"></span><br />
-                                                        <span id="playersize"></span>, <span id="offersize" class="text-white"></span>
-                                                        <br />
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="tab-pane" id="linkd">
-                                            
+                                            <p>
+                                                Store your ad on-chain and show it across the Commonwealth network!<br />
+                                                There are 2 simple steps to broadcasting on the Commonwealth network.
+                                            </p>
+                                            <ul>
+                                                <li>1. Make sure you have an <a target="_blank" href="https://forum.saturn.network/t/how-to-install-saturn-wallet-create-a-new-account/1302">ETC wallet</a> with ETC in it.</li>
+                                                <li>2. Fill out the fields below "Buy It!" and click "Purchase" when ready.</li>
+                                            </ul>
+                                            <h3 class="text-white">Rules: </h3>
+                                            <ul>
+                                                <li>Length of Text AND Link Text less than 140 characters. Img link 30 x 30.</li>
+                                                <li>Your image link should link to the actual image, make sure URL ends with .jpeg , .jpg , .gif , .svg, or .png</li>
+                                                <li>
+                                                    Broadcast is stored permanently on the blockchain and can be read by any Ethereum Classic node! Also hosted on our <a target="_blank" href="https://api.commonwealth.gg/sponsor/">server</a></li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    
-                    
-                    <div class="row">
-                        <div class="col">
-                            <div id="current"></div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <section class="section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <div class="card card-plain">
-                                <div class="card-header">
-                                    <h1 class="profile-title text-left">Race Arena</h1>
-                                    <h5 class="text-on-back">Stats</h5>
-                                </div>
-                                <div class="card-body">
-                                    <div class="jumbotron bg-default text-white animated fadeInUp delay-3s" id="history"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
+                    </div>                                        
+                </div>                    
+            </div>                     
+        
             <footer class="footer">
                 <div class="container">
                     <div class="row">
@@ -301,30 +280,31 @@
                     </div>
                 </div>
             </footer>
-        </div>
-
+        </div>    
+        
+ <!-- core Scripts !-->
         <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
         <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+        <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
         
+    <!-- jquery Scripts !-->
         <script src="assets/js/jquery.lazyload.min.js"></script>
         <script src="assets/js/jquery.validation.min.js"></script>
         
-        <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
         
-        <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-        
-        <script src="assets/js/plugins/bootstrap-switch.js"></script>
-        
-        <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-        
+
+    <!-- plugin Scripts !-->
+        <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>        
+        <script src="assets/js/plugins/bootstrap-switch.js"></script>        
+        <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>        
         <script src="assets/js/plugins/chartjs.min.js"></script>
-        <script src="assets/js/plugins/moment.min.js"></script>
-        
+        <script src="assets/js/plugins/moment.min.js"></script>        
         <script src="assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
         
         <script src="assets/js/blk-design-system.min.js?v=1.0.0" type="text/javascript"></script>
         
-        
+       
+    <!-- js Scripts !-->
         <script src="assets/js/tether.min.js"></script>
         <script src="assets/js/common.min.js"></script>
         <script src="assets/js/d3.v5.min.js"></script>
@@ -334,16 +314,17 @@
         <script src="assets/js/clipboard.min.js"></script>
         <script src="assets/js/lodash.min.js"></script>
         
-        <script src="assets/lib/util.js"></script>
-        <script src="assets/lib/home.js"></script>
+    <!-- lib Scripts !-->
+        <script src="assets/lib/charts.js"></script>
         <script src="assets/lib/contracts.js"></script>
+        <script src="assets/lib/home.js"></script>
+        <script src="assets/lib/masternode.js"></script>
+        <script src="assets/lib/prices.js"></script>
         <script src="assets/lib/pure.js"></script>
         <script src="assets/lib/rainmaker.js"></script>
-        <script src="assets/lib/masternode.js"></script>
         <script src="assets/lib/sponsor.js"></script>
-        <script src="assets/lib/use.js"></script>
-        <script src="assets/lib/charts.js"></script>
-        <script src="assets/lib/prices.js"></script>
-        <script src="assets/lib/arena.js"></script>
+        <script src="assets/lib/use.js"></script>        
+        <script src="assets/lib/util.js"></script>        
+        
     </body>
 </html>
