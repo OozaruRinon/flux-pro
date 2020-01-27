@@ -457,7 +457,7 @@
 ]
 
 //
-	contractAddress = "0xE8be2E87d586B72461c471bED2Ee52bdf6A7b0f8"  // Alien Mainnet
+	contractAddress = "0xE8be2E87d586B72461c471bED2Ee52bdf6A7b0f8"  // Flux Mainnet
 //
 
 function buyEggs(eth,callback){
