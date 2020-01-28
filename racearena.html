@@ -51,7 +51,6 @@
         <link rel="stylesheet" href="assets/css/scrollFix.css" />
         <link rel="stylesheet" href="assets/css/professional_style.css" />
         <link rel="stylesheet" href="assets/css/bootstrap.carousel.css" />
-        <link rel="stylesheet" href="assets/css/themes/default.min.css" />
         
         <link href="assets/css/blk-design-system.css?v=1.0.0" rel="stylesheet" />
         
@@ -175,11 +174,11 @@
                                     <small class="text-white text-center"></small>
                                 </div>
                                 <div class="card-body">
-                                    <div class="row">
-                                        <div class="col"><a href="#linka" class="btn btn-sm btn-block btn-success" data-toggle="tab">Game</a></div>
-                                        <div class="col"><a href="#linkb" class="btn btn-sm btn-block btn-success" data-toggle="tab">Info</a></div>
-                                        <div class="col"><a href="#linkc" class="btn btn-sm btn-block btn-success" data-toggle="tab">Rules</a></div>
-                                    </div>
+                                    <ul class="nav nav-tabs nav-tabs-primary justify-content-center">
+                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#linka">Game</a></li>
+                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkb">Info</a></li>
+                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkc">Rules</a></li>
+                                    </ul>
                                     <div class="tab-content tab-subcategories">
                                         <div class="tab-pane active" id="linka">
                                             <div class="row">
@@ -269,6 +268,12 @@
                                     <div class="jumbotron bg-default text-white animated fadeInUp delay-3s" id="history"></div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col">
+                            <span id="playeraddress"></span>
                         </div>
                     </div>
                 </div>

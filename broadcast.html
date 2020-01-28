@@ -119,9 +119,18 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right border-success bg-primary text-white" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item text-white" href="racearena.html"><i class="fas fa-flag-checkered text-success"></i> Race Arena</a>
-                                <a class="dropdown-item text-white" href="powerinc.html"><i class="fas fa-bolt text-success"></i> Power Inc</a>
-                                <a class="dropdown-item text-white" href="vault.html"><i class="fas fa-piggy-bank text-success"></i> Vault</a>
+                                <a class="dropdown-item text-white" href="flux.html">
+                                    <i class="fas fa-dollar-sign text-success"></i> Flux
+                                </a>
+                                <a class="dropdown-item text-white" href="racearena.html">
+                                    <i class="fas fa-flag-checkered text-success"></i> Race Arena
+                                </a>
+                                <a class="dropdown-item text-white" href="powerinc.html">
+                                    <i class="fas fa-bolt text-success"></i> Power Inc
+                                </a>
+                                <a class="dropdown-item text-white" href="vault.html">
+                                    <i class="fas fa-piggy-bank text-success"></i> Vault
+                                </a>
                             </div>
                         </li>
 
@@ -140,31 +149,34 @@
                 <img src="assets/img/path4.png" class="path">
                 <div class="container align-items-center">
                     <div class="row">
+                        
+                        
                         <div class="col-lg-6 col-md-6 animated fadeInLeft delay-2s">
                             <h1 class="profile-title text-left animated fadeInDown delay-3s"><i class="fas fa-coins"></i> Broadcaster</h1>
                             <h5 class="text-on-back"><i class="fab fa-ethereum"></i> [X]</h5>
                             <p class="profile-description animated flipInX delay-3s">
                                 <br />
-                                <a class="btn btn-block btn-md btn-info" href="#"><span id="currentLinkText" class="sponsorPrice">1234/token</span></a>
                                 <small class="text-white">
                                     <b class="badge badge-pill badge-default">Broadcast Fees go to Divies!</b> 
-                                </small> 
-                                
+                                </small>
                             </p>
                             
                             <div class="card border-success animated fadeInLeft delay-2s">
                                 <div class="card-body text-primary">
                                     <div id="currentImg" class="sponsorPrice">1234/token</div>
-                                    <h3 class="text-white"><span id="currentText" class="sponsorPrice">1234/token</span></h3>
-                                    <span id="currentLink" class="btn btn-block btn-primary">1234/token</span>
-                                    <hr />
+                                    <h3 class="text-white">
+                                        <span id="currentText" class="sponsorPrice">1234/token</span> - <span id="currentLinkText" class="sponsorPrice">1234/token</span>
+                                    </h3>
                                     <p>
-                                        <b>Owner <span id="owner"></span></b> - <span id="time" class="sponsorPrice"></span>
+                                        <b><span id="owner"></span></b><br />
+                                        <span id="time" class="sponsorPrice"></span>
                                     </p>
                                 </div>
                             </div>
                             <br />
                         </div>
+                        
+                        
                         <div class="col-md-6 ml-auto mr-auto">
                             <div class="card card-coin card-plain animated fadeInRight delay-2s">
                                 <div class="card-header">
@@ -204,7 +216,7 @@
                                             
                                             <div class="row sponsor">
                                                 <p>Preview: </p>
-                                                <div id="sampleAd" class="current"></div>
+                                                <div id="sampleAd" class="card-body text-white"></div>
                                             </div>
                                             <button id="sample"   class="btn btn-block btn-info">Generate Preview</button>
                                             <button id="purchase" class="btn btn-block btn-success">Purchase for <div id="price">price</div></button>
