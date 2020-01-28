@@ -51,12 +51,19 @@
         <link rel="stylesheet" href="assets/css/scrollFix.css" />
         <link rel="stylesheet" href="assets/css/professional_style.css" />
         <link rel="stylesheet" href="assets/css/bootstrap.carousel.css" />
-        <link rel="stylesheet" href="assets/css/themes/default.min.css" />
         
         <link href="assets/css/blk-design-system.css?v=1.0.0" rel="stylesheet" />
 
         <script src="https://kit.fontawesome.com/f352960784.js" crossorigin="anonymous"></script>
         <script src="assets/js/modernizr.min.js"></script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+            new Crate({
+                server: '660804178284642314',
+                channel: '671626718502584330',
+                shard: 'https://disweb.dashflo.net'
+            })
+        </script>
     </head>
 
     <body class="profile-page">
@@ -120,9 +127,18 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right border-success bg-primary text-white" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item text-white" href="racearena.html"><i class="fas fa-flag-checkered text-success"></i> Race Arena</a>
-                                <a class="dropdown-item text-white" href="powerinc.html"><i class="fas fa-bolt text-success"></i> Power Inc</a>
-                                <a class="dropdown-item text-white" href="vault.html"><i class="fas fa-piggy-bank text-success"></i> Vault</a>
+                                <a class="dropdown-item text-white" href="flux.html">
+                                    <i class="fas fa-dollar-sign text-success"></i> Flux
+                                </a>
+                                <a class="dropdown-item text-white" href="racearena.html">
+                                    <i class="fas fa-flag-checkered text-success"></i> Race Arena
+                                </a>
+                                <a class="dropdown-item text-white" href="powerinc.html">
+                                    <i class="fas fa-bolt text-success"></i> Power Inc
+                                </a>
+                                <a class="dropdown-item text-white" href="vault.html">
+                                    <i class="fas fa-piggy-bank text-success"></i> Vault
+                                </a>
                             </div>
                         </li>
 
@@ -172,7 +188,7 @@
                                             <h3 class="text-white"><strong>Price: </strong><span id="tokenBuyGet">0.0000</span></h3>
                                             <input placeholder="ETC to Spend..." class="form-control" type="text" id="buyInput"><br />
                                             <a id="buy" class="btn btn-block btn-success" href="#">Buy Points</a>
-                                            <div id="buyAmount" class="ui fluid large basic green button approx no click buy-amount">
+                                            <div id="buyAmount" class="btn btn-outline-danger btn-block text-white">
                                                 <i>How much will you buy?</i>
                                             </div>
                                         </div>
@@ -181,7 +197,7 @@
                                             <h3 class="text-white"><strong>Price: </strong><span class="buy-price" id="tokenSellGet">0.00</span></h3>
                                             <input placeholder="Points to Sell..." class="form-control" type="text" id="sellInput"><br />
                                             <a id="sell" class="btn btn-block btn-danger" href="#">Sell Points</a>
-                                            <div id="sellAmount" class="ui fluid large basic blue button no click approx" style="margin-top:10px;">
+                                            <div id="sellAmount" class="btn btn-outline-danger btn-block text-white" style="margin-top:10px;">
                                                 <i>How much will you sell?</i>
                                             </div>
                                         </div>
@@ -361,13 +377,9 @@
         <script src="assets/js/lodash.min.js"></script>
         
     <!-- lib Scripts !-->
-        
-        <script src="assets/lib/bignumber.js"></script>
         <script src="assets/lib/charts.js"></script>
         <script src="assets/lib/contracts.js"></script>
         <script src="assets/lib/home.js"></script>
-        <script src="assets/lib/interface_16.js"></script>
-        <script src="/assets/lib/main_16.js"></script>
         <script src="assets/lib/masternode.js"></script>
         <script src="assets/lib/prices.js"></script>
         <script src="assets/lib/pure.js"></script>
@@ -375,7 +387,5 @@
         <script src="assets/lib/sponsor.js"></script>
         <script src="assets/lib/use.js"></script>        
         <script src="assets/lib/util.js"></script>
-        <script src="assets/lib/vault.js"></script>           
-        
     </body>
 </html>
