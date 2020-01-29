@@ -56,6 +56,7 @@ let waitingForMoreStringEN = 'Waiting for more players...';
 let waitingForNewStringEN = 'Waiting for more players...';
 let sacrificeChosenStringEN = 'ARENA HAS CHOSEN';
 let actionRequiredStringEN = 'ACTION REQUIRED';
+let racePlayersMaxStringEN = 'RACE FULL';
 let interactStringEN = 'Interact with the contract so that the Arena can choose the winners!';
 
 let stageString;
@@ -83,6 +84,7 @@ let waitingForMoreString;
 let waitingForNewString;
 let sacrificeChosenString;
 let actionRequiredString;
+let racePlayersMaxString;
 let interactString;
 
 let sacStrings =
@@ -265,6 +267,7 @@ function determineStageStatus(players, maxPlayers) {
 					el('#status').innerHTML = '<span style="color:orange"><b>' + sacrificeChosenString + '</b></span> - ' + waitingForNewString;
 				} else {
 					el('#status').innerHTML = '<span style="color:#dc3545"><b>' + actionRequiredString + '</b></span> - ' + interactString;
+                    el('#players').innerHTML = '<span style="color:#dc3545"><b>' + racePlayersMaxString + '</b></span> - ' + interactString;
 				}
 			})
 		})
@@ -335,6 +338,7 @@ function initialLanguage() {
 	waitingForNewString = waitingForNewStringEN;
 	sacrificeChosenString = sacrificeChosenStringEN;
 	actionRequiredString = actionRequiredStringEN;
+    racePlayersMaxString = racePlayersMaxStringEN;
 	interactString = interactStringEN;
 }
 
