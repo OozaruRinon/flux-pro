@@ -159,9 +159,9 @@ function main() {
 		sacrific3CInstance.currentPlayers(function(error, result){
 			el('#players').innerHTML = currentPlayersString + ' <b>' + result + '/' + maxPlayers +'</b>';
 			listCurrentPlayers(result);
-			determineStageStatus(result, maxPlayers);
+			determineStageStatus(result, maxPlayers);            
 		})
-	})
+    })
 	
 	sacrific3CInstance.OFFER_SIZE(function(error, result){
 		offerSize = result;
@@ -256,7 +256,8 @@ function addressToName(address, x) {
 
 function determineStageStatus(players, maxPlayers) {
 	if(players < maxPlayers) {
-		el('#status').innerHTML = '<span style="color:#02c751"><b>' + openString + '</b></span> - ' + waitingForMoreString;
+        var playersNeeded = Math.floor(maxPlayers - players);
+		el('#status').innerHTML = '<span style="color:#02c751"><b>' + openString + '</b></span> - Waiting for ' + playersNeeded + ' more players';             
 	}
 	else {
 		web3.eth.getStorageAt(sacrific3CAddress, 4, function(error, result){
