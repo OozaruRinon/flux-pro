@@ -57,7 +57,7 @@ let waitingForNewStringEN = 'Waiting for more players...';
 let sacrificeChosenStringEN = 'ARENA HAS CHOSEN';
 let actionRequiredStringEN = 'ACTION REQUIRED';
 let racePlayersMaxStringEN = 'RACE FULL';
-let interactStringEN = 'Switch to the Game tab and VALIDATE RACE so that the Arena can choose the winners!';
+let interactStringEN = 'VALIDATE RACE on the Game tab so that the Arena can choose the winners!';
 
 let stageString;
 let p3cStatsString;
