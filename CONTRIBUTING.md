@@ -1,0 +1,1 @@
+If you wish to contribute to Flux Platform, please create a fork, make and commit your changes, and create a Pull Request. The core Arcadium Network team will review it, and if your changes are deemed valid or useful to holders of Commonwealth Points, your Pull Request may be merged.
