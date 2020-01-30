@@ -266,7 +266,7 @@ function determineStageStatus(players, maxPlayers) {
 				if(finalizedRound == currentRound) {
 					el('#status').innerHTML = '<span style="color:orange"><b>' + sacrificeChosenString + '</b></span> - ' + waitingForNewString;
 				} else {
-					el('#players').innerHTML = '<span style="color:#dc3545"><b>' + racePlayersMaxString + '</b></span> - ';
+					el('#players').innerHTML = '<span style="color:#dc3545"><b>' + racePlayersMaxString + '</b></span>';
                     el('#status').innerHTML = '<span style="color:#dc3545"><b>' + actionRequiredString + '</b></span> - ' + interactString;                   
 				}
 			})
