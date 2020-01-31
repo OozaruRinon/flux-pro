@@ -147,7 +147,7 @@ function refreshData(){
         var allnumalien=document.getElementsByClassName('numalien')
         for(var i=0;i<allnumalien.length;i++){
             if(allnumalien[i]){
-                allnumalien[i].textContent=translateQuantity(alien,0)
+                allnumalien[i].textContent=translateQuantity(alien)
             }
         }
         var productiondoc=document.getElementById('production')
