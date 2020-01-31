@@ -43,6 +43,7 @@ function main(){
                         console.log(res.args.Aliens + " watts have just finished converting");
                     }
                 });
+                
                 var onSellEggs = myContract.onSellEggs({}, "latest");
                 onSellEggs.watch(function (err, res) {
                     if (err != null) console.error(err);
@@ -52,6 +53,7 @@ function main(){
                         console.log("Someone earned " + BigNumber(res.args.ethereumEarned).div(1e18).toFixed(6) + " ETC selling Power");
                     }
                 });
+                
                 var onBuyEggs = myContract.onBuyEggs({}, "latest");
                 onBuyEggs.watch(function (err, res) {
                     if (err != null) console.error(err);
