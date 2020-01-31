@@ -2,6 +2,7 @@ disableUI()
 
 var farmContract = web3.eth.contract(contracts.farm.abi).at(contracts.farm.address);
 var p3cContract = web3.eth.contract(contracts.p3c.abi).at(contracts.p3c.address);
+var powerinc = web3.eth.contract(contracts.powerinc.abi).at(contracts.powerinc.address);
 var cropAbi = web3.eth.contract(contracts.crop.abi)
 
 var myCropAddress;
@@ -90,6 +91,16 @@ function getMyCropDividendsInfo() {
     });
 }
 
+var powerincETCValue = 0
+function getPowerIncETCValue() {
+    powerinc.getBalance.call(function (err, result) {
+        if (!err) {
+            gameBalance = parseFloat(web3.fromWei(result.toNumber()))
+            $("#powerincBalance").html(gameBalance.toFixed(3));
+        }
+    });
+}
+
 var myETCValue = 0
 function getMyCropTokens() {
     p3cContract.myTokens.call(function (err, result) {
@@ -120,6 +131,7 @@ function getCropInfo() {
     getMyCropTokens()
     getMyCropDividends()
     getMyCropDividendsInfo()
+    getPowerIncETCValue()
 }
 
 // This buys P3C from the crop, but with you as the referrer
