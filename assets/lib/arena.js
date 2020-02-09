@@ -53,7 +53,7 @@ let lockedUpStringEN = 'Locked Up<br />';
 let recentlySacrificedStringEN = 'has lost recently';
 let openStringEN = 'OPEN';
 let waitingForMoreStringEN = 'Waiting for more players...';
-let waitingForNewStringEN = 'Waiting for more players...';
+let waitingForNewStringEN = 'Waiting for the next 5 players...';
 let sacrificeChosenStringEN = 'ARENA HAS CHOSEN';
 let actionRequiredStringEN = 'ACTION REQUIRED';
 let racePlayersMaxStringEN = 'RACE FULL';
@@ -107,18 +107,25 @@ function startDapp() {
 	initialLanguage();
 	setupJUST()
 	small();    
-	setInterval(main, 60000);
+	setInterval(main, 30000);
 }
 
 function small() {
 	sacrific3CAddress = '0x5DF93a44D6B4E360fB17345cE47B83049d091A2a';
-	sacrific3CContract = web3.eth.contract([{"constant":false,"inputs":[],"name":"offerAsSacrificeFromVault","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"withdraw","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"OFFER_SIZE","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"offerAsSacrifice","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"winningsPerRound","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"currentPlayers","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"numberOfStages","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"MAX_PLAYERS_PER_STAGE","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"myEarnings","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"player","type":"address"}],"name":"SacrificeOffered","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sarifice","type":"address"}],"name":"SacrificeChosen","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"player","type":"address"},{"indexed":true,"name":"amount","type":"uint256"}],"name":"EarningsWithdrawn","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"stage","type":"uint256"}],"name":"StageInvalidated","type":"event"}]);	
+	sacrific3CContract = web3.eth.contract([{"constant":false,"inputs":[],"name":"offerAsSacrificeFromVault","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"withdraw","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"OFFER_SIZE","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"offerAsSacrifice","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"winningsPerRound","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"currentPlayers","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"tryFinalizeStage","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"numberOfStages","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"MAX_PLAYERS_PER_STAGE","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"myEarnings","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"player","type":"address"}],"name":"SacrificeOffered","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sarifice","type":"address"}],"name":"SacrificeChosen","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"player","type":"address"},{"indexed":true,"name":"amount","type":"uint256"}],"name":"EarningsWithdrawn","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"stage","type":"uint256"}],"name":"StageInvalidated","type":"event"}]);	
 	main();
 }
 
-function showValidate() {
+function showValidate(players, maxPlayers) {
     if(players == maxPlayers)
+    el('#validate').disabled = false;
     el('#validate').hidden = false;
+}
+
+function hideValidate(players, maxPlayers) {
+    if(players < maxPlayers)
+    el('#validate').disabled = true;
+    el('#validate').hidden = true;
 }
 
 function medium() {
@@ -156,6 +163,7 @@ function main() {
 	sacrific3CInstance = sacrific3CContract.at(sacrific3CAddress);
 	checkLastsacrific3C();
 	enableButtons();
+    hideValidate();
 
 	sacrific3CInstance.MAX_PLAYERS_PER_STAGE(function(error, maxPlayers){
 		el('#playersize').innerHTML = '<b>' + maxPlayers + '</b> ' + playerNumberString;
@@ -260,19 +268,19 @@ function addressToName(address, x) {
 function determineStageStatus(players, maxPlayers) {
 	if(players < maxPlayers) {
         var playersNeeded = Math.floor(maxPlayers - players);
-		el('#status').innerHTML = '<span style="color:#02c751"><b>' + openString + '</b></span> - Waiting for ' + playersNeeded + ' more players';             
+		el('#status').innerHTML = '<span style="color:#02c751"><b>' + openString + '</b></span> - Waiting for ' + playersNeeded + ' more player(s)';             
 	}
-	else {
-        showValidate();
+	else {        
 		web3.eth.getStorageAt(sacrific3CAddress, 4, function(error, result){
 			let finalizedRound = result;
-			web3.eth.getStorageAt(sacrific3CAddress, 5, function(error, result){
+			web3.eth.getStorageAt(sacrific3CAddress, 4, function(error, result){
 				let currentRound = result;
 				if(finalizedRound == currentRound) {
 					el('#status').innerHTML = '<span style="color:orange"><b>' + sacrificeChosenString + '</b></span> - ' + waitingForNewString;
 				} else {
 					el('#players').innerHTML = '<span style="color:#dc3545"><b>' + racePlayersMaxString + '</b></span>';
-                    el('#status').innerHTML = '<span style="color:#dc3545"><b>' + actionRequiredString + '</b></span> - ' + interactString;                   
+                    el('#status').innerHTML = '<span style="color:#dc3545"><b>' + actionRequiredString + '</b></span> - ' + interactString;
+                    showValidate();
 				}
 			})
 		})
