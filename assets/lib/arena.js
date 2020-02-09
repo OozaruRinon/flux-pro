@@ -273,10 +273,11 @@ function determineStageStatus(players, maxPlayers) {
 	else {        
 		web3.eth.getStorageAt(sacrific3CAddress, 4, function(error, result){
 			let finalizedRound = result;
-			web3.eth.getStorageAt(sacrific3CAddress, 4, function(error, result){
+			web3.eth.getStorageAt(sacrific3CAddress, 5, function(error, result){
 				let currentRound = result;
 				if(finalizedRound == currentRound) {
 					el('#status').innerHTML = '<span style="color:orange"><b>' + sacrificeChosenString + '</b></span> - ' + waitingForNewString;
+                    el('#players').innerHTML = '<span style="color:#dc3545"><b>' + racePlayersMaxString + '</b></span>';
 				} else {
 					el('#players').innerHTML = '<span style="color:#dc3545"><b>' + racePlayersMaxString + '</b></span>';
                     el('#status').innerHTML = '<span style="color:#dc3545"><b>' + actionRequiredString + '</b></span> - ' + interactString;
