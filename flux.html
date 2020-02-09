@@ -66,6 +66,10 @@
     </head>
 
     <body class="profile-page">
+        <div class="background-image">
+            <img src="assets/img/backgrounds/wallpaper2.jpg" style="background: background-image; height: 1000px; width: 2000px; position: fixed; z-index: -99;">
+        </div>
+        
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg fixed-top navbar-transparent animated fadeInDown delay-1s" color-on-scroll="100">
             <div class="container">
@@ -169,7 +173,7 @@
                             </p>
                         </div>
                         <div class="col-md-6 ml-auto mr-auto">
-                            <div class="card card-coin card-plain animated fadeInRight delay-2s">
+                            <div class="card card-coin animated fadeInRight delay-2s">
                                 <div class="card-header">
                                     <img src="assets/img/whale.png" class="img-center img-fluid rounded-circle">
                                     <h4 class="title">Right now, 1 Point costs <span id="priceUSD"></span> USD.</h4>
@@ -238,13 +242,13 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table tablesorter" id="plain-table">
+                                        <table class="table tablesorter" id="plain-table" style="background: rgba(34, 42, 66, .7);">
                                             <thead>
                                                 <tr>
                                                     <td></td>
-                                                    <td><i class="fab fa-ethereum"></i> ETC</td>
-                                                    <td><i class="fas fa-coins"></i> Points</td>
-                                                    <td>USD</td>
+                                                    <td class="text-success"><i class="fab fa-ethereum"></i> ETC</td>
+                                                    <td class="text-success"><i class="fas fa-coins"></i> Points</td>
+                                                    <td class="text-success">USD</td>
                                                 </tr>
                                             </thead>
                                                     
