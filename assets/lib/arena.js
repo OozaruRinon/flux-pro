@@ -53,10 +53,11 @@ let lockedUpStringEN = 'Locked Up<br />';
 let recentlySacrificedStringEN = 'has lost recently';
 let openStringEN = 'OPEN';
 let waitingForMoreStringEN = 'Waiting for more players...';
-let waitingForNewStringEN = 'Waiting for the next 5 players...';
+let waitingForNewStringEN = 'The next race is starting...';
 let sacrificeChosenStringEN = 'ARENA HAS CHOSEN';
 let actionRequiredStringEN = 'ACTION REQUIRED';
 let racePlayersMaxStringEN = 'RACE FULL';
+let playerEnteredStringEN = 'A player entered the next stage';
 let interactStringEN = 'VALIDATE RACE on the Game tab so that the Arena can choose the winners!';
 
 let stageString;
@@ -85,13 +86,23 @@ let waitingForNewString;
 let sacrificeChosenString;
 let actionRequiredString;
 let racePlayersMaxString;
+let playerEnteredString;
 let interactString;
 
 let sacStrings =
 				[
 				"has lost",
-				"was a worthy opponent.",
-				"was chosen by the Arena"
+				"was a worthy opponent",
+				"was chosen by the Arena",
+                "spun out",
+                "blew their engine",
+                "crashed spectacularly!",
+                "has been run off the road",
+                "put up a hard fight",
+                "wasn't fast enough",
+                "didn't make the cut",
+                "flamed out"
+                    
 				];
 				
 let slaStrings =
@@ -266,7 +277,7 @@ function addressToName(address, x) {
 }
 
 function determineStageStatus(players, maxPlayers) {
-	if(players < maxPlayers) {
+	if(players > maxPlayers - 4 && players < maxPlayers) {
         var playersNeeded = Math.floor(maxPlayers - players);
 		el('#status').innerHTML = '<span style="color:#02c751"><b>' + openString + '</b></span> - Waiting for ' + playersNeeded + ' more player(s)';             
 	}
@@ -275,9 +286,9 @@ function determineStageStatus(players, maxPlayers) {
 			let finalizedRound = result;
 			web3.eth.getStorageAt(sacrific3CAddress, 5, function(error, result){
 				let currentRound = result;
-				if(finalizedRound == currentRound) {
+				if(finalizedRound != currentRound && players == maxPlayers - 4) {
 					el('#status').innerHTML = '<span style="color:orange"><b>' + sacrificeChosenString + '</b></span> - ' + waitingForNewString;
-                    el('#players').innerHTML = '<span style="color:#dc3545"><b>' + racePlayersMaxString + '</b></span>';
+                    el('#players').innerHTML = '<span style="color:#dc3545"><b>' + playerEnteredString + '</b></span>';
 				} else {
 					el('#players').innerHTML = '<span style="color:#dc3545"><b>' + racePlayersMaxString + '</b></span>';
                     el('#status').innerHTML = '<span style="color:#dc3545"><b>' + actionRequiredString + '</b></span> - ' + interactString;
@@ -353,6 +364,7 @@ function initialLanguage() {
 	sacrificeChosenString = sacrificeChosenStringEN;
 	actionRequiredString = actionRequiredStringEN;
     racePlayersMaxString = racePlayersMaxStringEN;
+    playerEnteredString = playerEnteredStringEN;
 	interactString = interactStringEN;
 }
 
