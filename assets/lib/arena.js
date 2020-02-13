@@ -57,7 +57,7 @@ let waitingForNewStringEN = 'The next race is starting...';
 let sacrificeChosenStringEN = 'ARENA HAS CHOSEN';
 let actionRequiredStringEN = 'ACTION REQUIRED';
 let racePlayersMaxStringEN = 'RACE FULL';
-let playerEnteredStringEN = 'A player entered the next stage';
+let playerEnteredStringEN = 'Join the next stage now';
 let interactStringEN = 'VALIDATE RACE on the Game tab so that the Arena can choose the winners!';
 
 let stageString;
@@ -277,7 +277,7 @@ function addressToName(address, x) {
 }
 
 function determineStageStatus(players, maxPlayers) {
-	if(players > maxPlayers - 4 && players < maxPlayers) {
+	if(players < maxPlayers) {
         var playersNeeded = Math.floor(maxPlayers - players);
 		el('#status').innerHTML = '<span style="color:#02c751"><b>' + openString + '</b></span> - Waiting for ' + playersNeeded + ' more player(s)';             
 	}
@@ -286,7 +286,7 @@ function determineStageStatus(players, maxPlayers) {
 			let finalizedRound = result;
 			web3.eth.getStorageAt(sacrific3CAddress, 5, function(error, result){
 				let currentRound = result;
-				if(finalizedRound != currentRound && players == maxPlayers - 4) {
+				if(finalizedRound == currentRound) {
 					el('#status').innerHTML = '<span style="color:orange"><b>' + sacrificeChosenString + '</b></span> - ' + waitingForNewString;
                     el('#players').innerHTML = '<span style="color:#dc3545"><b>' + playerEnteredString + '</b></span>';
 				} else {
