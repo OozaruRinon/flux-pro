@@ -327,12 +327,19 @@ function checkAltar() {
 	
 	sacrific3CInstance.myEarnings(function(error, result){
 		el('#vault').innerHTML = earningsString;
+        el('#earnings').innerHTML = earningsString;
 		if(result > 0) {
 			el('#vault').innerHTML +=' <b>' + web3.fromWei(result, 'ether').toFixed(8) + ' ETC</b>';
+            el('#earnings').innerHTML +=' <b>' + web3.fromWei(result, 'ether').toFixed(8) + ' ETC</b>';
 			el('#withdrawArenaDivs').disabled = false;
+            el('#buyFluxButton').disabled = false;
+            el('#showBuy').hidden = false;
 		} else {
 			el('#vault').innerHTML += ' <b>0 ETC</b>';
+            el('#earnings').innerHTML += ' <b>0 ETC</b>';
 			el('#withdrawArenaDivs').disabled = true;
+            el('#buyFluxButton').disabled = true;
+            el('#showBuy').hidden = true;
 		}
 		if(result >= offerSize) {
 			el('#offervault').disabled = false;
