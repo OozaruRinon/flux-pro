@@ -57,7 +57,7 @@ let waitingForNewStringEN = 'Waiting for the next ';
 let sacrificeChosenStringEN = 'ARENA HAS CHOSEN';
 let actionRequiredStringEN = 'ACTION REQUIRED';
 let racePlayersMaxStringEN = 'RACE FULL';
-let raceEndedStringEN = 'Validate this race then join the next stage to see if you won!';
+let raceEndedStringEN = 'Validate then withdraw your earnings or use them to join the next stage!';
 let newRaceStringEN = 'RACE '
 let interactStringEN = 'VALIDATE RACE on the Game tab so that the Arena can choose the winners!';
 
@@ -281,24 +281,28 @@ function addressToName(address, x) {
 
 
 function determineStageStatus(players, maxPlayers) {
-	if(players > maxPlayers - 4 && players < maxPlayers) {
+    //IF PLAYERS IS GREATER THAN 1 AND LESS THAN 5 DISPLAY OPEN STRING AND NUMBER OF REQUIRED PLAYERS
+	if(players < maxPlayers) {
         var playersNeeded = Math.floor(maxPlayers - players);
 		el('#status').innerHTML = '<span style="color:#02c751"><b>' + openString + '</b></span> - Waiting for ' + playersNeeded + ' more player(s)';             
 	}
 	else {     
+        //GET CURRENT ROUND NUMBER FOR NEW RACE STRING VALUE
         sacrific3CInstance.numberOfStages(function(error, result) {
-            let lastRoundString = result - 1;
+            let lastRoundString = result;
 		web3.eth.getStorageAt(sacrific3CAddress, 4, function(error, result){
 			let finalizedRound = result;
 			web3.eth.getStorageAt(sacrific3CAddress, 5, function(error, result){
 				let currentRound = result;
-				if(finalizedRound != currentRound && players == maxPlayers - 4) {
-                    var playersNeeded = Math.floor(maxPlayers - players);
+                //IF THE LAST ROUND WAS JUST FINALIZED DISPLAY ARENA CHOSEN STRING AND REQUIRED NUMBER OF PLAYERS
+				if(finalizedRound == currentRound) {
+                    var playersNeeded = Math.floor(maxPlayers - players + 5);
 					el('#status').innerHTML = '<span style="color:orange"><b>' + sacrificeChosenString + '</b></span> - ' + waitingForNewString + playersNeeded + ' players...';
                     el('#players').innerHTML = '<span style="color:#dc3545"><b>' + newRaceString + lastRoundString + ' ENDED! Join the next stage now</b></span>';
+                //OTHERWISE IF MAX NUMBER OF PLAYERS HAVE JOINED DISPLAY ACTION REQUIRED STRING AND SHOW VALIDATE BUTTON
 				} else {
-					el('#players').innerHTML = '<span style="color:#dc3545"><b>' + racePlayersMaxString + '<br>' + raceEndedString + '</b></span>';
-                    el('#status').innerHTML = '<span style="color:#dc3545"><b>' + actionRequiredString + '</b></span> - ' + interactString;
+					el('#status').innerHTML = '<span style="color:#dc3545"><b>' + actionRequiredString + '</b></span> - ' + interactString;
+                    el('#players').innerHTML = '<span style="color:#dc3545"><b>' + racePlayersMaxString + '<br>' + raceEndedString + '</b></span>';      
                     showValidate();
 				}
 			})
