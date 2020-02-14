@@ -184,6 +184,7 @@
                                         <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#linka">Game</a></li>
                                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkb">Info</a></li>
                                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkc">Rules</a></li>
+                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linkd">Flux</a></li> 
                                     </ul>
                                     <div class="tab-content tab-subcategories">
                                         <div class="tab-pane active" id="linka">
@@ -216,6 +217,12 @@
                                                 </div>
                                             </div>
                                             
+                                            <button href="#showBuy" type="button" class="btn btn-block btn-danger" role="button" data-toggle="collapse"  id="buyFluxButton" disabled="true">BUY FLUX POINTS</button>
+                                            <p class="text-center"><span id="earnings"></span></p>
+                                                
+                                                <div class="collapse" id="showBuy"><h4 class="text-white"><strong>Price: </strong><span id="tokenBuyGet">0.0000</span></h4><input placeholder="ETC to Spend..." class="form-control" type="text" id="buyInput"><a id="buy" class="btn btn-block btn-success" href="#">Buy Points</a><div id="buyAmount" class="btn btn-outline-danger btn-block text-white" onclick="buyFluxArena()"><i>How much will you buy?</i></div>                        
+                                                </div>
+                                            
                                             <div class="row">
                                                 <div class="col">
                                                     <button type="button" id="validate" onclick="validate()" hidden="true" disabled="true" class="btn btn-warning" role="button"></button>
@@ -241,7 +248,19 @@
                                         </div>
                                         
                                         <div class="tab-pane" id="linkd">
-                                            
+                                            <div class="tab-content tab subcategories text-center">
+                                                <div class="col-lg-12 col-md-12 animated fadeInLeft delay-2s">
+                                                    <h1 class="profile-title text-left animated fadeInDown delay-3s"><i class="fas fa-coins"></i> <span id="myCropTokens"></span> Points</h1>
+                                                    <h5 class="text-on-back"><i class="fab fa-ethereum"></i> <span id="myETCValue">0</span> ETC</h5>
+                                                    <p class="profile-description animated flipInX delay-3s">
+                                                        <br />
+                                
+                                                        <small class="text-white">
+                                                            <b class="badge badge-pill badge-default" style="font-size: 14px;">Your Dividends: <span id="myCropDividendsInfo"></span> ETC</b> 
+                                                        </small> 
+                                
+                                                    </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
