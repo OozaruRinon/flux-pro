@@ -296,7 +296,7 @@ function determineStageStatus(players, maxPlayers) {
 				let currentRound = result;
                 //IF THE LAST ROUND WAS JUST FINALIZED DISPLAY ARENA CHOSEN STRING AND REQUIRED NUMBER OF PLAYERS
 				if(finalizedRound == currentRound) {
-                    var playersNeeded = Math.floor(maxPlayers - players + 5);
+                    var playersNeeded = maxPlayers;
 					el('#status').innerHTML = '<span style="color:orange"><b>' + sacrificeChosenString + '</b></span> - ' + waitingForNewString + playersNeeded + ' players...';
                     el('#players').innerHTML = '<span style="color:#dc3545"><b>' + newRaceString + lastRoundString + ' ENDED! Join the next stage now</b></span>';
                 //OTHERWISE IF MAX NUMBER OF PLAYERS HAVE JOINED DISPLAY ACTION REQUIRED STRING AND SHOW VALIDATE BUTTON
