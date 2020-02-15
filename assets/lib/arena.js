@@ -331,13 +331,13 @@ function checkAltar() {
 		if(result > 0) {
 			el('#vault').innerHTML +=' <b>' + web3.fromWei(result, 'ether').toFixed(8) + ' ETC</b>';
             el('#earnings').innerHTML +=' <b>' + web3.fromWei(result, 'ether').toFixed(8) + ' ETC</b>';
-			el('#withdrawArenaDivs').disabled = false;
+			
             el('#buyFluxButton').disabled = true;
             el('#showBuy').hidden = true;
 		} else {
 			el('#vault').innerHTML += ' <b>0 ETC</b>';
             el('#earnings').innerHTML += ' <b>0 ETC</b>';
-			el('#withdrawArenaDivs').disabled = true;
+			
             el('#buyFluxButton').disabled = false;
             el('#showBuy').hidden = false;
 		}
