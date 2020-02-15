@@ -57,7 +57,7 @@ let waitingForNewStringEN = 'Waiting for the next ';
 let sacrificeChosenStringEN = 'ARENA HAS CHOSEN';
 let actionRequiredStringEN = 'ACTION REQUIRED';
 let racePlayersMaxStringEN = 'RACE FULL';
-let raceEndedStringEN = 'Validate then withdraw earnings or use them to join the next stage!';
+let raceEndedStringEN = 'Validate, then withdraw earnings or use them to join the next stage!';
 let newRaceStringEN = 'RACE '
 let interactStringEN = 'VALIDATE RACE on the Game tab so that the Arena can choose the winners!';
 
