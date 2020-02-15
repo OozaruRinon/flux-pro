@@ -354,7 +354,7 @@ function secondsToString(seconds)
     //    endstr+=numdays + " days "
     //}
     
-    return numhours + "h " + numminutes + "m "//+numseconds+"s";
+    return numhours + "h " + numminutes + "m " + numseconds + "s";
 }
 
 function disableButtons(){
