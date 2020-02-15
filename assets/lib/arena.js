@@ -42,8 +42,8 @@ let withdrawButtonStringEN = 'WITHDRAW EARNINGS';
 let playerNumberStringEN = 'players enter a daring challenge'
 let offerSize1StringEN = 'each paying ';
 let offerSize2StringEN = 'to race!';
-let winnings1StringEN = 'one racer will receive Dividends, ';
-let winnings2StringEN = 'which are purchased every round and locked up in the contract.';
+let winnings1StringEN = 'Race Arena locks up Flux Points in the contract every round, which grows the dividends. ';
+let winnings2StringEN = 'One racer will receive dividends, ';
 let winnings3StringEN = 'Everyone else receives ';
 let winnings4StringEN = 'as their prize for winning!';
 let currentStageStringEN = 'Stage ';
@@ -296,7 +296,7 @@ function determineStageStatus(players, maxPlayers) {
 				let currentRound = result;
                 //IF THE LAST ROUND WAS JUST FINALIZED DISPLAY ARENA CHOSEN STRING AND REQUIRED NUMBER OF PLAYERS
 				if(finalizedRound == currentRound) {
-                    var playersNeeded = Math.floor(maxPlayers - players + 5);
+                    var playersNeeded = maxPlayers;
 					el('#status').innerHTML = '<span style="color:orange"><b>' + sacrificeChosenString + '</b></span> - ' + waitingForNewString + playersNeeded + ' players...';
                     el('#players').innerHTML = '<span style="color:#dc3545"><b>' + newRaceString + lastRoundString + ' ENDED! Join the next stage now</b></span>';
                 //OTHERWISE IF MAX NUMBER OF PLAYERS HAVE JOINED DISPLAY ACTION REQUIRED STRING AND SHOW VALIDATE BUTTON
