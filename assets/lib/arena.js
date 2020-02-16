@@ -282,7 +282,8 @@ function determineStageStatus(players, maxPlayers) {
     //IF PLAYERS IS GREATER THAN 1 AND LESS THAN 5 DISPLAY OPEN STRING AND NUMBER OF REQUIRED PLAYERS
 	if(players < maxPlayers) {
         var playersNeeded = Math.floor(maxPlayers - players);
-		el('#status').innerHTML = '<span style="color:#02c751"><b>' + openString + '</b></span> - Waiting for ' + playersNeeded + ' more player(s)';           hideValidate(); 
+		el('#status').innerHTML = '<span style="color:#02c751"><b>' + openString + '</b></span> - Waiting for ' + playersNeeded + ' more player(s)';
+        hideValidate(); 
 	}
 	else {     
         //GET CURRENT ROUND NUMBER FOR NEW RACE STRING VALUE
