@@ -57,9 +57,9 @@ let waitingForNewStringEN = 'Waiting for the next ';
 let sacrificeChosenStringEN = 'ARENA HAS CHOSEN';
 let actionRequiredStringEN = 'ACTION REQUIRED';
 let racePlayersMaxStringEN = 'RACE FULL';
-let raceEndedStringEN = 'Validate, then withdraw earnings or use them to join the next stage!';
+let raceEndedStringEN = 'Waiting for the next stage!';
 let newRaceStringEN = 'RACE '
-let interactStringEN = 'VALIDATE RACE on the Game tab so that the Arena can choose the winners!';
+let interactStringEN = "VALIDATE RACE <br /> So the Arena can choose the winners! <br /> Once you've validated, join the next race or wait for your earnings.";
 
 let stageString;
 let p3cStatsString;
@@ -130,15 +130,14 @@ function small() {
 }
 
 function showValidate(players, maxPlayers) {
-    if(players == maxPlayers)
-    el('#validate').disabled = false;
-    el('#validate').hidden = false;
+    if(players == maxPlayers) {
+        el('#validate').disabled = false;
+        el('#validate').hidden = false;
+    }
 }
 
-function hideValidate(players, maxPlayers) {
-    if(players < maxPlayers)
+function hideValidate() {
     el('#validate').disabled = true;
-    el('#validate').hidden = true;
 }
 
 function medium() {
@@ -176,7 +175,6 @@ function main() {
 	sacrific3CInstance = sacrific3CContract.at(sacrific3CAddress);
 	checkLastsacrific3C();
 	enableButtons();
-    hideValidate();
 
 	sacrific3CInstance.MAX_PLAYERS_PER_STAGE(function(error, maxPlayers){
 		el('#playersize').innerHTML = '<b>' + maxPlayers + '</b> ' + playerNumberString;
@@ -284,7 +282,7 @@ function determineStageStatus(players, maxPlayers) {
     //IF PLAYERS IS GREATER THAN 1 AND LESS THAN 5 DISPLAY OPEN STRING AND NUMBER OF REQUIRED PLAYERS
 	if(players < maxPlayers) {
         var playersNeeded = Math.floor(maxPlayers - players);
-		el('#status').innerHTML = '<span style="color:#02c751"><b>' + openString + '</b></span> - Waiting for ' + playersNeeded + ' more player(s)';             
+		el('#status').innerHTML = '<span style="color:#02c751"><b>' + openString + '</b></span> - Waiting for ' + playersNeeded + ' more player(s)';           hideValidate(); 
 	}
 	else {     
         //GET CURRENT ROUND NUMBER FOR NEW RACE STRING VALUE
@@ -294,8 +292,9 @@ function determineStageStatus(players, maxPlayers) {
 			let finalizedRound = result;
 			web3.eth.getStorageAt(sacrific3CAddress, 5, function(error, result){
 				let currentRound = result;
-                //IF THE LAST ROUND WAS JUST FINALIZED DISPLAY ARENA CHOSEN STRING AND REQUIRED NUMBER OF PLAYERS
+                //IF THE CURRENT ROUND IS FINALIZED DISPLAY ARENA CHOSEN STRING AND REQUIRED NUMBER OF PLAYERS
 				if(finalizedRound == currentRound) {
+                    hideValidate();
                     var playersNeeded = maxPlayers;
 					el('#status').innerHTML = '<span style="color:orange"><b>' + sacrificeChosenString + '</b></span> - ' + waitingForNewString + playersNeeded + ' players...';
                     el('#players').innerHTML = '<span style="color:#dc3545"><b>' + newRaceString + lastRoundString + ' ENDED! Join the next stage now</b></span>';
