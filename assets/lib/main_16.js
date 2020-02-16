@@ -1,12 +1,12 @@
 ﻿var modal
 var modalContent
-var lastNumEggs=-1
-var lastNumAlien=-1
-var lastSecondsUntilFull=100
-var lastSecondsElapsed=100
-lastHatchTime=0
-var eggstohatch1=864
-var lastUpdate=new Date().getTime()
+var lastNumEggs = -1
+var lastNumAlien = -1
+var lastSecondsUntilFull = 100
+var lastSecondsElapsed = 100
+var lastHatchTime = 0
+var eggstohatch1 = 864
+var lastUpdate = new Date().getTime()
 function main(){
     console.log('test')
     modal = document.getElementById('myModal');
@@ -339,8 +339,7 @@ function copyRef() {
   //alert("Copied the text: " + copyText.value);
 }
 
-function secondsToString(seconds)
-{
+function secondsToString(seconds) {
     seconds=Math.max(seconds,0)
     var numdays = Math.floor(seconds / 86400);
 
@@ -348,13 +347,13 @@ function secondsToString(seconds)
 
     var numminutes = Math.floor(((seconds % 86400) % 3600) / 59);
 
-    var numseconds = ((seconds % 86400) % 3600) % 60;
+    var numseconds = Math.floor((seconds % 86400) % 3600) % 60;
     var endstr=""
     //if(numdays>0){
     //    endstr+=numdays + " days "
     //}
     
-    return numhours + "h " + numminutes + "m " + numseconds + "s";
+    return numhours + "h " + numminutes + "m " + numseconds + "s ";
 }
 
 function disableButtons(){
