@@ -60,7 +60,7 @@ let racePlayersMaxStringEN = 'RACE FULL';
 let raceEndedStringEN = 'Waiting for the next stage!';
 let newRaceStringEN = 'RACE '
 let interactStringEN = "VALIDATE RACE <br /> So the Arena can choose the winners! <br /> Once you've validated, join the next race or wait for your earnings.";
-let raceValidatedAlertEN = "Someone just validated the Race!";
+let raceValidatedAlertEN = "Someone is validating the Race!";
 
 let stageString;
 let p3cStatsString;
@@ -159,7 +159,7 @@ function offer() {
 
 function validate() {
 	sacrific3CInstance.tryFinalizeStage(function(error, result){})
-    alertify.alert(raceValidatedAlert);
+    alertify.alert(raceValidatedAlert, "", 0);
 }
 	
 function offervault() {
@@ -335,15 +335,15 @@ function checkAltar() {
 		if(result > 0) {
 			el('#vault').innerHTML +=' <b>' + web3.fromWei(result, 'ether').toFixed(8) + ' ETC</b>';
             el('#earnings').innerHTML +=' <b>' + web3.fromWei(result, 'ether').toFixed(8) + ' ETC</b>';
-			
-            el('#buyFluxButton').disabled = true;
-            el('#showBuy').hidden = true;
+			el('#withdrawArenaDivs').disabled = false;
+        //    el('#buyFluxButton').disabled = true;
+        //    el('#showBuy').hidden = true;
 		} else {
 			el('#vault').innerHTML += ' <b>0 ETC</b>';
             el('#earnings').innerHTML += ' <b>0 ETC</b>';
-			
-            el('#buyFluxButton').disabled = false;
-            el('#showBuy').hidden = false;
+			el('#withdrawArenaDivs').disabled = true;
+        //    el('#buyFluxButton').disabled = false;
+        //    el('#showBuy').hidden = false;
 		}
 		if(result >= offerSize) {
 			el('#offervault').disabled = false;
