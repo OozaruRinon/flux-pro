@@ -138,6 +138,7 @@ function showValidate(players, maxPlayers) {
 
 function hideValidate() {
     el('#validate').disabled = true;
+    el('#validate').hidden = false;
 }
 
 function medium() {
