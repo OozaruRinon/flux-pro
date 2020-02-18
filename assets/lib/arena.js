@@ -159,7 +159,7 @@ function offer() {
 
 function validate() {
 	sacrific3CInstance.tryFinalizeStage(function(error, result){})
-    alertify.alert(raceValidatedAlert, "", 0);
+    alertify.success(raceValidatedAlert, 10);
 }
 	
 function offervault() {
