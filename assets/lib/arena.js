@@ -60,7 +60,7 @@ let racePlayersMaxStringEN = 'RACE FULL';
 let raceEndedStringEN = 'Waiting for the next stage!';
 let newRaceStringEN = 'RACE '
 let interactStringEN = "VALIDATE RACE <br /> So the Arena can choose the winners! <br /> Once you've validated, join the next race or wait for your earnings.";
-let raceValidatedAlertEN = "Someone is validating the Race!";
+let raceValidatedAlertEN = "Someone has tried validating the Race!";
 
 let stageString;
 let p3cStatsString;
@@ -159,7 +159,7 @@ function offer() {
 
 function validate() {
 	sacrific3CInstance.tryFinalizeStage(function(error, result){})
-    alertify.success(raceValidatedAlert, 10);
+    alertify.success(raceValidatedAlert, 0);
 }
 	
 function offervault() {
