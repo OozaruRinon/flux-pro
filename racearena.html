@@ -72,7 +72,7 @@
         </div>
                 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg fixed-top navbar-transparent animated fadeInDown delay-1s">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-transparent animated fadeInDown delay-1s" color-on-scroll="100">
             <div class="container">
                 <div class="navbar-translate">
                     <a class="navbar-brand" href="index.html" rel="tooltip" title="Homepage" data-placement="bottom">
@@ -194,7 +194,7 @@
                                 <br />
                                 <br />
                                 <small class="text-white">
-                                    <b class="badge badge-pill badge-default" style="font-size: 14px">Race Arena Dividends: <span id="sac"></span></b> 
+                                    <b class="badge badge-pill badge-default" style="font-size: 14px">Arena Dividends: <span id="sac"></span></b> 
                                 </small>                                
                             </p>
                         </div>
@@ -206,6 +206,7 @@
                                     <small class="text-white text-center"></small>
                                 </div>
                                 <p id="status" style="text-align: center"></p>
+                                <p id="playerJoined" style="text-align: center"></p>
                                     <div class="row text-center">
                                         <div class="col">
                                             <button type="button" id="validate" rel="tooltip" title="Only validate once! Once the transaction is confirmed, either join the next race, withdraw earnings or wait. Validating more than once won't move the game forward and only costs you gas fees!" data-placement="top" onclick="validate()" hidden="true" disabled="true" class="btn btn-warning" role="button"></button>
@@ -263,8 +264,8 @@
                                                 </div>                                                                                        
                                         </div>
                                         
-                                        <div class="tab-pane" id="linkb" style="font-size: 13px;">                                            
-                                            <p id="players" style="text-align:center"></p>
+                                        <div class="tab-pane" id="linkb">                                            
+                                            <p id="players" style="text-align:center; font-size: 12px;"></p>
                                             <p class="text-center"><span id="vault"></span></p>
                                         </div>
                                         
