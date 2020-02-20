@@ -47,6 +47,7 @@ let winnings2StringEN = 'One racer will receive dividends, ';
 let winnings3StringEN = 'Everyone else receives ';
 let winnings4StringEN = 'for winning!';
 let currentStageStringEN = 'Stage ';
+let playerJoinedStringEN = "You've joined "
 let currentPlayersStringEN = 'Players in Game:';
 let dividendsStringEN = 'Dividends<br />';
 let lockedUpStringEN = 'Locked Up<br />';
@@ -78,6 +79,7 @@ let winnings2String;
 let winnings3String;
 let winnings4String;
 let currentStageString;
+let playerJoinedString;
 let currentPlayersString;
 let dividendsString;
 let lockedUpString;
@@ -131,6 +133,7 @@ function small() {
 	main();
 }
 
+/*
 function showValidate(players, maxPlayers) {
     if(players == maxPlayers) {
         el('#validate').disabled = false;
@@ -142,6 +145,7 @@ function hideValidate() {
     el('#validate').disabled = true;
     el('#validate').hidden = true;
 }
+*/
 
 function medium() {
 	sacrific3CAddress = '0x8c841EDA4E377c06595ff7967292FC0430E81393';
@@ -151,7 +155,14 @@ function medium() {
 
 function offer() {
 	if(sac) {
-		sacrific3CInstance.offerAsSacrifice({value:offerSize, gas:350000}, function(error, result){})
+		sacrific3CInstance.offerAsSacrifice({value:offerSize, gas:350000}, function(error, result){
+        if(!error) {
+        sacrific3CInstance.numberOfStages(function(error, result) {
+            let playerStageString = result;
+            el('#playerJoined').innerHTML = '<b style="color:#02c751">' + playerJoinedString + currentStageString + playerStageString + '</b>'
+        })
+        }
+        })
 	} else {
 		sacrific3CInstance.offerAsSacrifice(mnAddress, {value:offerSize, gas:400000}, function(error, result){})
 	}
@@ -160,7 +171,7 @@ function offer() {
 function validate() {
 	sacrific3CInstance.tryFinalizeStage(function(error, result){
         if(!error){
-            alertify.success(raceValidatedAlert, 0);
+            alertify.success(raceValidatedAlert, 5);
             callback()
         }
         else{
@@ -171,7 +182,14 @@ function validate() {
 	
 function offervault() {
 	if(sac) {
-		sacrific3CInstance.offerAsSacrificeFromVault({gas:350000}, function(error, result){})
+		sacrific3CInstance.offerAsSacrificeFromVault({gas:350000}, function(error, result){
+        if(!error) {
+        sacrific3CInstance.numberOfStages(function(error, result) {
+            let playerStageString = result;
+            el('#playerJoined').innerHTML = '<b style="color:#02c751">' + playerJoinedString + currentStageString + playerStageString + '</b>'
+        })
+        }
+        })
 	} else {
 		sacrific3CInstance.offerAsSacrificeFromVault(mnAddress, {gas:400000}, function(error, result){})
 	}
@@ -294,33 +312,19 @@ function determineStageStatus(players, maxPlayers) {
 	if(players < maxPlayers) {
         var playersNeeded = Math.floor(maxPlayers - players);
 		el('#status').innerHTML = '<span style="color:#02c751"><b>' + openString + '</b></span> - Waiting for ' + playersNeeded + ' more player(s)';
-        hideValidate(); 
 	}
 	else {     
         //GET CURRENT ROUND NUMBER FOR NEW RACE STRING VALUE
         sacrific3CInstance.numberOfStages(function(error, result) {
             let lastRoundString = result;
-		web3.eth.getStorageAt(sacrific3CAddress, 4, function(error, result){
-			let finalizedRound = result;
-			web3.eth.getStorageAt(sacrific3CAddress, 5, function(error, result){
-				let currentRound = result;
                 //IF THE CURRENT ROUND IS FINALIZED DISPLAY ARENA CHOSEN STRING AND REQUIRED NUMBER OF PLAYERS
-				if(finalizedRound == currentRound) {
-                    hideValidate();
                     var playersNeeded = maxPlayers;
 					el('#status').innerHTML = '<span style="color:orange"><b>' + sacrificeChosenString + '</b></span> - ' + waitingForNewString + playersNeeded + ' players...';
                     el('#players').innerHTML = '<span style="color:#dc3545"><b>' + newRaceString + lastRoundString + ' ENDED! Join the next stage now</b></span>';
-                //OTHERWISE IF MAX NUMBER OF PLAYERS HAVE JOINED DISPLAY ACTION REQUIRED STRING AND SHOW VALIDATE BUTTON
-				} else {
-					el('#status').innerHTML = '<span style="color:#dc3545"><b>' + actionRequiredString + '</b></span> - ' + interactString;
-                    el('#players').innerHTML = '<span style="color:#dc3545"><b>' + racePlayersMaxString + '<br>' + raceEndedString + '</b></span>';      
-                    showValidate();
-				}
+                    el('#playerJoined').innerHTML = '<b style="color:#02c751"> Join the next race now </b>'
 			})
-		})
-    })
-	}
-}	
+		}
+    }	
 
 function enableButtons() {
 	el('#small').disabled = false;
@@ -384,6 +388,7 @@ function initialLanguage() {
 	winnings3String = winnings3StringEN;
 	winnings4String = winnings4StringEN;
 	currentStageString = currentStageStringEN;
+    playerJoinedString = playerJoinedStringEN;
 	currentPlayersString = currentPlayersStringEN;
 	dividendsString = dividendsStringEN;
 	lockedUpString = lockedUpStringEN;
