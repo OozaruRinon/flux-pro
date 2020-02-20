@@ -45,7 +45,7 @@ let offerSize2StringEN = 'to race!';
 let winnings1StringEN = 'Race Arena locks up Flux Points in the contract every round, which grows the dividends. ';
 let winnings2StringEN = 'One racer will receive dividends, ';
 let winnings3StringEN = 'Everyone else receives ';
-let winnings4StringEN = 'as their prize for winning!';
+let winnings4StringEN = 'for winning!';
 let currentStageStringEN = 'Stage ';
 let currentPlayersStringEN = 'Players in Game:';
 let dividendsStringEN = 'Dividends<br />';
@@ -140,7 +140,7 @@ function showValidate(players, maxPlayers) {
 
 function hideValidate() {
     el('#validate').disabled = true;
-    el('#validate').hidden = false;
+    el('#validate').hidden = true;
 }
 
 function medium() {
